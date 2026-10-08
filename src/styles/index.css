@@ -1,8 +1,0 @@
-@import "tailwindcss";
-
-/* 클래스 기반 다크모드 (html에 .dark 붙여 표기) */
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
-
-}
