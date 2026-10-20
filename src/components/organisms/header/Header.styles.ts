@@ -58,9 +58,5 @@ export const HeaderInner = styled.div`
 	.menu-area {
 		display: flex;
 		margin-left: auto;
-		
-		.today-delivery {
-			height: 40px;
-		}
 	}
 `;
