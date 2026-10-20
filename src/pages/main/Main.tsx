@@ -1,10 +1,9 @@
-import {GlobalStyle} from "@/styles/GlobalStyels.ts";
+import {Header} from "@/components/organisms/header/Header.tsx";
 
 export default function Main () {
 	return (
 		<>
-			<GlobalStyle />
-			메인
+			<Header />
 		</>
 	)
 }
