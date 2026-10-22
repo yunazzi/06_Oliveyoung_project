@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeaderWrap = styled.div`
+export const HeaderWrap = styled.header`
 	width: 1280px;
 	margin: 36px auto 0;
 	padding: 0 40px;
@@ -21,7 +21,7 @@ export const MenuList = styled.ul`
 	
 	li {
 		position: relative;
-		color: var(--color-gray-900);
+
 		~ li {
 			padding-left: 8px;
 			margin-left: 8px;
@@ -37,10 +37,6 @@ export const MenuList = styled.ul`
 				height: 12px;
 				background: var(--color-gray-200);
 			}
-		}
-		
-		a {
-			padding: 4px;
 		}
 	}
 `;

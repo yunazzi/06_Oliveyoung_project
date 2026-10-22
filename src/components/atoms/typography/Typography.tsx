@@ -19,8 +19,10 @@ const weightClass = {
 
 const colorClass = {
 	black: 'text-common-black',
-	gray900: 'text-gray-900',
 	snbPink: 'text-snb-pink',
+	green500: 'text-brand-green-500',
+	gray900: 'text-gray-900',
+	gray700: 'text-gray-700',
 } as const;
 
 export type TypographyVariant = keyof typeof variantClass;

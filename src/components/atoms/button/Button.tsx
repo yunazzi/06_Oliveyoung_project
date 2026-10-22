@@ -23,6 +23,7 @@ type Props = {
 	iconEnd?: string | undefined;
 	as?: React.ElementType;
 	iconColor?: string;
+	to?: string;
 }
 
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'auto';
@@ -40,11 +41,12 @@ const iconSizeByButtonSize: Record<ButtonSize, IconSize> = {
 	auto: 'md'
 }
 
+// text 버튼 타입
 const textStyleByButtonSize: Record<ButtonSize, TextStyle> = {
 	xs: { variant: 'body', weight:'medium'},
-	sm: { variant: 'body', weight:'semiBold'},
-	md: { variant: 'subTitle', weight:'semiBold'},
-	lg: { variant: 'title', weight:'bold'},
+	sm: { variant: 'subTitle', weight:'semiBold'},
+	md: { variant: 'title', weight:'bold'},
+	lg: { variant: 'headingMd', weight:'bold'},
 	auto: { variant: 'body', weight:'semiBold'},
 }
 
@@ -57,7 +59,9 @@ export const Button = ({
 	text,
 	iconStart,
 	iconEnd,
-	iconColor,
+	iconColor = 'black',
+	as,
+	to,
 }:Props) => {
 	const textStyle = textStyleByButtonSize[size];
 
@@ -65,9 +69,12 @@ export const Button = ({
 		<S.Button
 			$type={type}
 			$size={size}
+			$hasIcon={!!(iconStart || iconEnd)}
 			color={color}
 			className={className}
 			onClick={onClick}
+			as={as}
+		 	to={to}
 		>
 			{iconStart && <Icon name={iconStart} size={iconSizeByButtonSize[size]} iconColor={iconColor} />}
 			<Typography as='span' {...textStyle} color={color}>
