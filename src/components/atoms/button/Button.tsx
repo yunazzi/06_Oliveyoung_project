@@ -13,9 +13,10 @@ import type {
 } from "@/components/atoms/typography/Typography.tsx";
 
 type Props = {
-	className?: string;
 	type: 'solid' | 'outline' | 'text' ;
 	size: 'xs' | 'sm' | 'md' | 'lg' | 'auto'; // 36px | 44px | 48px | 60px
+	status?: 'def' | 'defFooter' | 'select' | 'disabled';
+	className?: string;
 	color?: TypographyColor;
 	onClick?: () => void;
 	text?: string;
@@ -24,6 +25,7 @@ type Props = {
 	as?: React.ElementType;
 	iconColor?: string;
 	to?: string;
+	radius?: 'sm' | 'md';
 }
 
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'auto';
@@ -62,6 +64,8 @@ export const Button = ({
 	iconColor = 'black',
 	as,
 	to,
+	status = 'def',
+	radius= 'sm',
 }:Props) => {
 	const textStyle = textStyleByButtonSize[size];
 
@@ -75,6 +79,8 @@ export const Button = ({
 			onClick={onClick}
 			as={as}
 		 	to={to}
+			$status={status}
+			$radius={radius}
 		>
 			{iconStart && <Icon name={iconStart} size={iconSizeByButtonSize[size]} iconColor={iconColor} />}
 			<Typography as='span' {...textStyle} color={color}>

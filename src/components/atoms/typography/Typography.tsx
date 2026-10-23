@@ -23,6 +23,8 @@ const colorClass = {
 	green500: 'text-brand-green-500',
 	gray900: 'text-gray-900',
 	gray700: 'text-gray-700',
+	gray600: 'text-gray-600',
+	gray300: 'text-gray-300',
 } as const;
 
 export type TypographyVariant = keyof typeof variantClass;

@@ -1,29 +1,31 @@
 import * as S from './SelectBox.styles.ts';
 
-const optionItem = [
-	{option: 'CJ 패밀리 사이트 가기'},
-	{option: 'CJ 주식회사'},
-	{option: 'CJ 대한통운'},
-	{option: 'CJ 제일제당'},
-	{option: 'CJ CGV'},
-]
+export type SelectOption = {
+	label: string;
+	value: string;
+}
 
 type Props = {
 	title?: string;
 	type?: 'def' | 'footer';
+	options?: SelectOption[];
+	onChange?: (value: string) => void;
 }
 
 export const SelectBox = ({
 	title,
 	type = 'def',
+	options = [],
+	onChange,
 }:Props) => {
 	return(
 		<S.SelectBox
 			title={title}
 			$type={type}
+			onChange={(e) => onChange?.(e.target.value)}
 		>
-			{optionItem.map((item) => (
-				<option value="">{item.option}</option>
+			{options.map((item) => (
+				<option key={item.value} value={item.value}>{item.label}</option>
 			))}
 		</S.SelectBox>
 	)
