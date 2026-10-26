@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @theme {
+  /* fontFamily */
+  --font-sans: Pretendard;
+  --sans: Pretendard;
+
   /* typography */
   --text-display: 48px;
   --text-display--line-height: 60px;

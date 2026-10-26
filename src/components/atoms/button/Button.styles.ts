@@ -63,6 +63,7 @@ const outlineColorStyles = {
 
 export const Button = styled.button<StyledProps>`
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	gap: ${({ $hasIcon }) => ($hasIcon ? '4px' : '')};
 	

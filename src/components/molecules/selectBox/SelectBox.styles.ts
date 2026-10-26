@@ -9,8 +9,7 @@ export const SelectBox = styled.select<StyledProps>`
 	border: 1px solid var(--color-gray-300);
 	outline: none;
 	
-	width: 100%;
-	border-radius: ${({$type}) => ($type === 'def' ? 'var(--radius-md)': '4px')};
+	border-radius: ${({$type}) => ($type === 'def' ? 'var(--radius-md)': '8px')};
 	height: ${({$type}) => ($type === 'def' ? '44px': '32px')};
 	padding: ${({$type}) => ($type === 'def' ? '10px 12px': '4px 60px 4px 8px')};
 	

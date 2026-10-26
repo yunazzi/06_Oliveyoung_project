@@ -1,8 +1,18 @@
 import * as S from './Footer.styles.ts';
 import {Link} from "react-router-dom";
-import {Button, Typography, SelectBox} from "@/components";
+import {SelectBox, Button, Typography } from "@/components";
+import type { TypographyWeight } from "@/components/atoms/typography/Typography.tsx"; // 실제 경로로 수정
 import footerLogo from "/public/assets/icons/ic-footerLogo.svg";
 import type {SelectOption} from "@/components/molecules/selectBox/SelectBox.tsx";
+
+// 이미지
+import markLogo1 from "/public/assets/icons/ic-ismsp.svg";
+import markLogo2 from "/public/assets/icons/ic-ccm.svg";
+import facebook from "/public/assets/icons/ic-facebook.svg";
+import instagram from "/public/assets/icons/ic-instagram.svg";
+import youtube from "/public/assets/icons/ic-youtube.svg";
+import blog from "/public/assets/icons/ic-blog.svg";
+import kakao from "/public/assets/icons/ic-kakao.svg";
 
 const FooterMenuItem = [
 	{text: '회사소개', to: '/'},
@@ -30,61 +40,120 @@ const familySiteOptions: SelectOption[] = [
     {label: 'CJ CGV', value: 'https://www.cgv.co.kr'},
 ];
 
+const footerButtonWrapCont = [
+	{text: '1:1 문의하기'},
+	{text: '자주묻는 질문'},
+	{text: '공지사항'},
+];
+
+const termInfo: { info: string; weight?: TypographyWeight }[] = [
+	{info: '이용약관과 정책 법적고지'},
+	{info: '개인정보처리방침', weight: 'medium'},
+	{info: '청소년보호방침'},
+	{info: '고정형 영상정보처리기기운영/관리 방침'},
+	{info: '이메일무단수집거부'},
+] as const;
+
+const snsItem = [
+	{snsLogo: facebook, snsName: '페이스북'},
+	{snsLogo: instagram, snsName: '인스타그램'},
+	{snsLogo: youtube, snsName: '유튜브'},
+	{snsLogo: blog, snsName: '블로그'},
+	{snsLogo: kakao, snsName: '카카오톡 채널'},
+];
+
 export const Footer = () => {
 	return(
 		<>
 			<S.FooterWrap>
-				<S.FooterTopArea>
-					<div className="left-area">
-						<S.MenuList>
-							{FooterMenuItem.map((item, idx) => (
-								<li key={idx}>
-									<Button as={Link} to={item.to} type='text' size='xs' text={item.text} color={'gray700'} />
-								</li>
-							))}
-						</S.MenuList>
-						<div className="logo-area">
-							<a href="javascript:" className="footer-logo">
-								<img src={footerLogo} alt="Oliveyoung Logo" />
-							</a>
-						</div>
-						<div className="footer-info">
-							{footerInfo.map((item) => (
-								<Typography variant='caption' weight='medium' as={'p'} color={'gray700'}>{item.children}</Typography>
-							))}
-						</div>
-					</div>
-
-					<div className="right-area">
-						<SelectBox
-							type={'footer'}
-							title={'CJ 패밀리 사이트'}
-							options={familySiteOptions}
-							onChange={(url) => url && window.open(url, '_blank', 'noopener,noreferrer')}
-						/>
-
-						<div className="customer-box">
-							<Typography variant='headingMd' weight={'bold'} as={'p'} color={'gray600'}>1577-4887</Typography>
-							<div className="customer-info">
-								<Typography variant='caption' as={'span'} color={'gray700'}>
-									일반 문의 : 9:00 - 18:00 (평일)
-								</Typography>
-								<Typography variant='caption' as={'span'} color={'gray700'}>
-									오늘드림 : 09:00 - 23:00 (평일, 주말)
-								</Typography>
+				<div className="footer-inner">
+					<S.FooterTopArea>
+						<div className="left-area">
+							<S.MenuList>
+								{FooterMenuItem.map((item, idx) => (
+									<li key={idx}>
+										<Button as={Link} to={item.to} type='text' size='xs' text={item.text} color={'gray700'} />
+									</li>
+								))}
+							</S.MenuList>
+							<div className="logo-area">
+								<a href="javascript:" className="footer-logo">
+									<img src={footerLogo} alt="Oliveyoung Logo" />
+								</a>
+							</div>
+							<div className="footer-info">
+								{footerInfo.map((item) => (
+									<Typography variant='caption' weight='medium' as={'p'} color={'gray700'}>{item.children}</Typography>
+								))}
 							</div>
 						</div>
 
-						<div className="btn-wrap">
-							<Button type={'outline'} size={'xs'} text={'1:1 문의하기'} color={'gray700'} status={'defFooter'} />
-							<Button type={'outline'} size={'xs'} text={'자주묻는 질문'} color={'gray700'} status={'defFooter'} />
-							<Button type={'outline'} size={'xs'} text={'공지사항'} color={'gray700'} status={'defFooter'} />
-						</div>
-					</div>
-				</S.FooterTopArea>
-				<S.FooterBottomArea>
+						<div className="right-area">
+							<SelectBox
+								type={'footer'}
+								title={'CJ 패밀리 사이트'}
+								options={familySiteOptions}
+								onChange={(url) => url && window.open(url, '_blank', 'noopener,noreferrer')}
+							/>
 
-				</S.FooterBottomArea>
+							<div className="customer-box">
+								<Typography variant='headingMd' weight={'bold'} as={'p'} color={'gray600'}>1577-4887</Typography>
+								<div className="customer-info">
+									<Typography variant='caption' as={'span'} color={'gray700'}>
+										일반 문의 : 9:00 - 18:00 (평일)
+									</Typography>
+									<Typography variant='caption' as={'span'} color={'gray700'}>
+										오늘드림 : 09:00 - 23:00 (평일, 주말)
+									</Typography>
+								</div>
+							</div>
+
+							<div className="btn-wrap">
+								{footerButtonWrapCont.map((item) => (
+									<Button type={'outline'} size={'xs'} text={item.text} color={'gray700'} status={'defFooter'} className={'w100'} />
+								))}
+							</div>
+						</div>
+					</S.FooterTopArea>
+					<S.FooterBottomArea>
+						<div className="ba-top-box">
+							<ul className="term-info-list">
+								{termInfo.map((item, idx) => (
+									<li key={idx}>
+										<Typography as={'a'} variant={'caption'} weight={item.weight} color={'gray700'}>{item.info}</Typography>
+									</li>
+								))}
+							</ul>
+							<Typography variant={'caption'} color={'gray700'}>Copyright ⓒ CJ OliveYoung. All Rights Reserved.</Typography>
+						</div>
+						<div className="ba-bottom-box">
+							<ul className="certification-mark">
+								<li>
+									<img src={markLogo1} />
+									<span className="text-box">
+										<p>올리브영 국내, 올리브영 글로벌, 디플롯 운영</p>
+										<p>2024. 12. 04 ~ 2027. 12. 03</p>
+									</span>
+								</li>
+								<li>
+									<img src={markLogo2} />
+									<span className="text-box">
+										<Typography variant={'caption'} color={'gray700'}>소비자중심경영 인증</Typography>
+									</span>
+								</li>
+							</ul>
+							<ul className="sns-area">
+								{snsItem.map((item) => (
+									<li className="sns-item">
+										<a href="javascript:">
+											<img src={item.snsLogo} alt={item.snsName + ` 바로가기`} />
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					</S.FooterBottomArea>
+				</div>
 			</S.FooterWrap>
 		</>
 	)
