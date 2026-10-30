@@ -1,5 +1,5 @@
 import React from "react";
-
+import * as S from './Layout.styles.ts';
 // 컴포넌트 import
 import {
 	Header,Footer // organisms
@@ -15,9 +15,9 @@ export const Layout = ({
 	return (
 		<>
 			<Header />
-			<main>
+			<S.Content>
 				{children}
-			</main>
+			</S.Content>
 			<Footer />
 		</>
 	)

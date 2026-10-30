@@ -25,6 +25,7 @@ const colorClass = {
 	gray700: 'text-gray-700',
 	gray600: 'text-gray-600',
 	gray300: 'text-gray-300',
+	gray50: 'text-gray-50'
 } as const;
 
 export type TypographyVariant = keyof typeof variantClass;

@@ -7,6 +7,7 @@ export {Button} from '@/components/atoms/button/Button.tsx';
 // molecules
 export {SearchBox} from '@/components/molecules/searchBox/SearchBox.tsx';
 export {SelectBox} from '@/components/molecules/selectBox/SelectBox.tsx';
+export {CustomSwiper} from '@/components/molecules/swiper/Swiper.tsx';
 
 // organisms
 export {Header} from '@/components/organisms/header/Header.tsx';

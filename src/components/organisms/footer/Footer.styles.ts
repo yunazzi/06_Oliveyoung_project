@@ -5,10 +5,10 @@ export const FooterWrap = styled.footer`
 	padding-top: 36px;
 	padding-bottom: 56px;
 	
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	//position: absolute;
+	//left: 0;
+	//right: 0;
+	//bottom: 0;
 	
 	.footer-inner {
 		width: 1200px;
