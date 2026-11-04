@@ -3,7 +3,7 @@ import {Icon} from "@/components";
 
 import React, { useRef, useState, type ReactNode } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -22,6 +22,7 @@ type Props = {
 	delay?: number;
 	loop?: boolean;
 	className?: string;
+	width?: number;
 }
 
 const pad = (n: number) => String(n).padStart(2, '0');
@@ -31,12 +32,13 @@ export const CustomSwiper  = ({
 	type = 'def',
 	spaceBetween,
 	slidesPerView,
-	navigation = true,
+	navigation = false,
 	pagination = false,
 	autoplay = false,
 	delay = 3000,
 	loop = false,
 	className,
+	width
 }:Props) => {
 	const swiperRef = useRef<SwiperType | null>(null);
 	const [current, setCurrent] = useState(1);
@@ -57,14 +59,14 @@ export const CustomSwiper  = ({
 	const handleNext = () => swiperRef.current?.slideNext();
 
 	return (
-		<S.SwiperWrap $type={type}>
+		<S.SwiperWrap $type={type} $width={width}>
 			<Swiper
 				className={className}
-				modules={[Autoplay, Navigation, Pagination]}
+				modules={[Autoplay, Pagination]}
 				spaceBetween={spaceBetween}
 				slidesPerView={slidesPerView}
 				loop={loop || isHero}
-				navigation={!isHero && navigation}
+				navigation={false}
 				pagination={!isHero && pagination ? { clickable: true } : false}
 				autoplay={
 				  autoplay || isHero
@@ -79,7 +81,7 @@ export const CustomSwiper  = ({
 				))}
 			</Swiper>
 
-			{isHero && (
+			{isHero ? (
 				<S.HeroControls>
 				  	<S.ProgressTrack>
 						<S.ProgressBar $ratio={current / total} />
@@ -95,6 +97,17 @@ export const CustomSwiper  = ({
 						<Icon name={playing ? 'pause':'rightArrow'} isButton size={'md'} iconColor='black' className={playing ? 'btn-pause':'btn-play'} onClick={togglePlay} />
 					</S.HeroButtons>
 				</S.HeroControls>
+			) : (
+				navigation && (
+					<S.DefControls $width={width}>
+						<button className="btn-prev" onClick={handlePrev}>
+							<Icon name='leftArrow' size={'auto'} iconColor='black' />
+						</button>
+						<button className="btn-next" onClick={handleNext}>
+							<Icon name='rightArrow' size={'auto'} iconColor='black' />
+						</button>
+					</S.DefControls>
+				)
 			)}
 		</S.SwiperWrap>
 	);

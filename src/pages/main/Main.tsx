@@ -1,8 +1,9 @@
 // 컴포넌트 import
 import {
-	Layout, CustomSwiper, Typography
+	Layout, CustomSwiper, Typography, Button
 } from "@/components/index.ts";
 
+// 이미지 import
 import mainHero from '@/assets/main_hero.png';
 const oliveBetter = 'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/9150117102901960085.jpg';
 const blackFriday = 'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/5894762829911584005.jpg';
@@ -27,11 +28,14 @@ const swiperItem = [
 		description: '사전쿠폰에 더해지는 나만의 혜택'
 	}
 ]
+import * as S from './Main.styles.ts';
+import * as T from './TabCategory.styles.ts';
+import {tabCategories} from '@/data/tabCategory.ts';
 
 export default function Main () {
 	return (
 		<Layout>
-			<CustomSwiper type={'hero'} delay={4000}>
+			<CustomSwiper type={'hero'} delay={4000} loop>
 				{swiperItem.map((item) => (
 					<>
 						<div className="img-area">
@@ -45,6 +49,67 @@ export default function Main () {
 					</>
 				))}
 			</CustomSwiper>
+
+			<S.ContWrap className="content-wrap">
+				<S.ContBox className={'mt-28'}>
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={88} spaceBetween={20}>
+						{tabCategories.map((item) => (
+							<T.TabSlide className="tab-slide" key={item.alt}>
+								<div className="img-area">
+									<img src={item.src} alt={item.alt} />
+								</div>
+								<div className="text-area">
+									<Typography variant={'subTitle'} weight={'semiBold'}>{item.name}</Typography>
+								</div>
+							</T.TabSlide>
+						))}
+					</CustomSwiper>
+				</S.ContBox>
+				<S.ContBox>
+					<div className="title-wrap">
+						<Button type={'text'} size={'lg'} text={'⚡ ️오늘 바로 드려요'} iconEnd={'rightArrow'} />
+						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
+							지금 주문하면 바로 오는 <span className={'pink'}>오늘드림™</span>으로 만나보세요
+						</Typography>
+					</div>
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={88} spaceBetween={20}>
+						{tabCategories.map((item) => (
+							<T.TabSlide className="tab-slide" key={item.alt}>
+								<div className="img-area">
+									<img src={item.src} alt={item.alt} />
+								</div>
+								<div className="text-area">
+									<Typography variant={'subTitle'} weight={'semiBold'}>{item.name}</Typography>
+								</div>
+							</T.TabSlide>
+						))}
+					</CustomSwiper>
+				</S.ContBox>
+				<S.ContBox>
+					<div className="title-wrap">
+						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
+							지금 주문하면 바로 오는 <span className={'pink'}>오늘드림™</span>으로 만나보세요
+						</Typography>
+						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
+							지금 주문하면 바로 오는 <span className={'pink'}>오늘드림™</span>으로 만나보세요
+						</Typography>
+					</div>
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={88} spaceBetween={20}>
+						{tabCategories.map((item) => (
+							<T.TabSlide className="tab-slide" key={item.alt}>
+								<div className="img-area">
+									<img src={item.src} alt={item.alt} />
+								</div>
+								<div className="text-area">
+									<Typography variant={'subTitle'} weight={'semiBold'}>{item.name}</Typography>
+								</div>
+							</T.TabSlide>
+						))}
+					</CustomSwiper>
+				</S.ContBox>
+			</S.ContWrap>
+
+
 		</Layout>
 	)
 }

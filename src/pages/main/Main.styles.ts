@@ -1,0 +1,29 @@
+import styled from "styled-components";
+
+export const ContWrap = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 80px;
+`;
+
+export const ContBox = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 28px;
+	
+	.title-wrap {
+		display: flex;
+		flex-direction: column;
+		
+		&:not(:has(button)) {
+			gap: 12px;
+		}
+	}
+
+	span {
+		&.pink {
+			color: var(--color-snb-pink);
+		}
+	}
+`;

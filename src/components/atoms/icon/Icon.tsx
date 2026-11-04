@@ -8,7 +8,7 @@ type Props = {
 	iconColor?: string;
 	opacity?: number;
 	className?: string;
-	size?: 'sm' | 'md' | 'auto' ; // 20 | 24 | auto
+	size?: 'sm' | 'md' | 'xl' | 'auto' ; // 20 | 24 | 40 | auto
 }
 
 export const Icon = ({

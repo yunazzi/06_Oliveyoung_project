@@ -2,11 +2,21 @@ import styled, { css } from 'styled-components';
 
 type StyledProps = {
 	$type?: 'hero' | 'def';
+	$width?: number;
 };
 
 export const SwiperWrap = styled.div<StyledProps>`
 	position: relative;
 	width: 100%;
+	
+	${({ $width }) =>
+       $width &&
+       css`
+          .swiper-slide {
+             width: ${$width}px;
+          }
+       `
+    }
 	
 	img {
 		display: block;
@@ -52,14 +62,60 @@ export const SwiperWrap = styled.div<StyledProps>`
 				background: rgba(0, 0, 0, 0.5);
 				color: #fff;
 			
-			&::after {
-				font-size: 16px;
-				font-weight: 700;
+				&::after {
+					font-size: 16px;
+					font-weight: 700;
+				}
 			}
-		}
-	`}
+		`
+	}
+	${({ $type }) =>
+		$type === 'def' &&
+		css`
+			max-width: 1200px;
+			margin: 0 auto;
+		`
+	}
 `;
 
+export const DefControls = styled.div<StyledProps>`
+	position: absolute;
+    top: ${({ $width }) => ($width ? `${$width / 2}px` : '50%')};
+    left: 50%;
+    transform: translate(-50%, -50%);
+	width: 100%;
+	max-width: 1200px;
+	height: 0;
+	pointer-events: none;
+	z-index: 10;
+	
+	.btn-prev, .btn-next {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: auto;
+		cursor: pointer;
+		
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		border-radius: 12px;
+		background: var(--color-common-white);
+		box-shadow: 0 2px 4px 0 rgba(48, 47, 44, 0.2);
+		
+		span {
+			display: inline-block;
+			width: 28px;
+			height: 28px;
+		}
+	}
+	.btn-prev { left: -22px; }
+    .btn-next { right: -22px; }
+`;
+
+// 메인 히어로배너 swiper
 export const HeroControls = styled.div`
 	position: absolute;
 	left: 0;

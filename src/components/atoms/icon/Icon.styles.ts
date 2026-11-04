@@ -4,12 +4,13 @@ type StyledProps = {
     $name: string;
     $iconColor?: string;
     $opacity?: number;
-	$size?: 'sm' | 'md' | 'auto' ;
+	$size?: 'sm' | 'md' | 'xl' | 'auto' ;
 };
 
 const sizeStyles = {
 	sm: '20px',
 	md: '24px',
+	xl: '40px',
 	auto: 'auto',
 };
 

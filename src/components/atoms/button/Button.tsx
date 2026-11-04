@@ -29,7 +29,7 @@ type Props = {
 }
 
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'auto';
-type IconSize = 'sm' | 'md' | 'auto' ;
+type IconSize = 'sm' | 'md' | 'xl' | 'auto' ; // sm - 20 | md - 24 | xl - 40
 type TextStyle = {
     variant: TypographyVariant;
     weight: TypographyWeight;
@@ -68,6 +68,7 @@ export const Button = ({
 	radius= 'sm',
 }:Props) => {
 	const textStyle = textStyleByButtonSize[size];
+	const iconSize = type === 'text' && size === 'lg' ? 'xl' : iconSizeByButtonSize[size];
 
 	return(
 		<S.Button
@@ -82,11 +83,11 @@ export const Button = ({
 			$status={status}
 			$radius={radius}
 		>
-			{iconStart && <Icon name={iconStart} size={iconSizeByButtonSize[size]} iconColor={iconColor} />}
+			{iconStart && <Icon name={iconStart} size={iconSize} iconColor={iconColor} />}
 			<Typography as='span' {...textStyle} color={color}>
 				{text}
 			</Typography>
-			{iconEnd && <Icon name={iconEnd} size={iconSizeByButtonSize[size]} iconColor={iconColor} />}
+			{iconEnd && <Icon name={iconEnd} size={iconSize} iconColor={iconColor} />}
 		</S.Button>
 	)
 }
