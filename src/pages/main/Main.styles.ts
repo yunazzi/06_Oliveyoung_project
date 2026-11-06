@@ -26,4 +26,10 @@ export const ContBox = styled.div`
 			color: var(--color-snb-pink);
 		}
 	}
+	
+	// common
+	.tag-wrap {
+		display: flex;
+		gap: 8px;
+	}
 `;

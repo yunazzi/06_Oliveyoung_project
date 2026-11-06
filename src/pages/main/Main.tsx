@@ -1,7 +1,14 @@
 // 컴포넌트 import
 import {
-	Layout, CustomSwiper, Typography, Button
+	Layout,
+	CustomSwiper, ProdUnit,
+	Typography, Button,
 } from "@/components/index.ts";
+
+import * as S from './Main.styles.ts';
+import * as T from './TabCategory.styles.ts';
+import {tabCategories} from '@/data/tabCategory.ts';
+import type { TagData } from "@/components/molecules/prodUnit/ProdUnit.tsx"
 
 // 이미지 import
 import mainHero from '@/assets/main_hero.png';
@@ -28,9 +35,11 @@ const swiperItem = [
 		description: '사전쿠폰에 더해지는 나만의 혜택'
 	}
 ]
-import * as S from './Main.styles.ts';
-import * as T from './TabCategory.styles.ts';
-import {tabCategories} from '@/data/tabCategory.ts';
+
+const tagItems: TagData[] = [
+    { text: '증정', color: 'gray', type: 'solid' },
+    { text: '오늘드림', color: 'pink', type: 'solid' },
+];
 
 export default function Main () {
 	return (
@@ -72,17 +81,22 @@ export default function Main () {
 							지금 주문하면 바로 오는 <span className={'pink'}>오늘드림™</span>으로 만나보세요
 						</Typography>
 					</div>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={88} spaceBetween={20}>
-						{tabCategories.map((item) => (
-							<T.TabSlide className="tab-slide" key={item.alt}>
-								<div className="img-area">
-									<img src={item.src} alt={item.alt} />
-								</div>
-								<div className="text-area">
-									<Typography variant={'subTitle'} weight={'semiBold'}>{item.name}</Typography>
-								</div>
-							</T.TabSlide>
-						))}
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} spaceBetween={20}>
+						<>
+							<ProdUnit
+								size={'xl'}
+								ProdView={17898}
+								thumbImg={mainHero}
+								thumbAlt={'메디힐'}
+								prodBrand={'메디힐'}
+								prodTitle={'[15년 연속 1위] 메디힐 에센셜 마스크팩10/10 +1매 기획 7종 골라담기'}
+								originVal={20000}
+								percent={50}
+								currentVal={10000}
+								tags={tagItems}
+							/>
+						</>
+						<></>
 					</CustomSwiper>
 				</S.ContBox>
 				<S.ContBox>
@@ -108,8 +122,6 @@ export default function Main () {
 					</CustomSwiper>
 				</S.ContBox>
 			</S.ContWrap>
-
-
 		</Layout>
 	)
 }
