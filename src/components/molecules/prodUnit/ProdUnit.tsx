@@ -1,5 +1,5 @@
 import {
-	ThumbBox, Typography, Tag, GoodsGroup
+	ThumbBox, Typography, Tag, GoodsGroup, Review
 } from "@/components/index.ts";
 
 export type TagData = {
@@ -10,23 +10,26 @@ export type TagData = {
 
 import * as S from './ProdUnit.styles.ts'
 import type {TagColor} from "@/components/atoms/tag/Tag.styles.ts";
+import {comma} from "@/utils/numFormat/format.ts";
 
 type Props = {
-	type?: 'row' | 'column';
 	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'; // 120 | 168 | 204 | 220 | 282
 	thumbImg?: string;
 	thumbAlt?: string;
 	prodBrand?: string;
 	prodTitle?: string;
-	ProdView?: number;
+	prodView?: number;
 	originVal?: number;
 	percent?: number;
 	currentVal?: number;
 	tags?: TagData[];
+	reviewStar?: number;
+	reviewNum?: number;
+	bookmark?: boolean;
+	rank?: number;
 }
 
 export const ProdUnit = ({
-	type = 'column',
 	size = 'lg',
 	thumbImg,
 	thumbAlt,
@@ -35,21 +38,27 @@ export const ProdUnit = ({
 	originVal,
 	percent,
 	currentVal,
-	ProdView,
+	prodView,
 	tags = [],
+	reviewStar,
+	reviewNum,
+	bookmark,
+	rank
 }:Props) => {
 	const isXs = size === 'xs';
+	const layoutType = size === 'sm' || size === 'md' ? 'row' : 'column';
 
 	return(
-		<S.ProdUnit className={'prod-unit'} $type={type} $size={size}>
-			<ThumbBox size={size} thumbImg={thumbImg} thumbAlt={thumbAlt} />
+		<S.ProdUnit className={'prod-unit'} $type={layoutType} $size={size}>
+			<a href="" className={'btn-link'}></a>
+			<ThumbBox size={size} thumbImg={thumbImg} thumbAlt={thumbAlt} bookmark={bookmark} rank={rank} />
 			<S.InfoBox className={'text-area'} $size={size}>
-				{ProdView && (
+				{size === 'lg' && prodView !== undefined && (
 					<Typography className={'prod-view'} weight={'semiBold'} color={'coral600'}>
-						{`${ProdView}명이 보고 있어요 👀`}
+						{`${comma(prodView)}명이 보고 있어요 👀`}
 					</Typography>
 				)}
-				{prodBrand && (
+				{(size === 'xl' || size === 'md') && prodBrand && (
 					<Typography className={'prod-brand'} variant={'subTitle'} weight={'semiBold'} color={'gray500'}>
 						{prodBrand}
 					</Typography>
@@ -84,6 +93,8 @@ export const ProdUnit = ({
 						))}
 					</div>
 				)}
+
+				{isXs ? '' : <Review reviewStar={reviewStar} reviewNum={reviewNum} />}
 			</S.InfoBox>
     	</S.ProdUnit>
 	)

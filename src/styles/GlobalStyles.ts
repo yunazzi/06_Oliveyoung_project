@@ -1,7 +1,7 @@
 import {createGlobalStyle} from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-	//폰트스타일
+	/* 폰트스타일 */
 	@font-face {
 		font-family: 'pretendard';
 		src: url('/assets/fonts/pretendard/Pretendard-Regular.woff2') format('woff2');

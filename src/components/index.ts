@@ -6,6 +6,7 @@ export {Button} from '@/components/atoms/button/Button.tsx';
 export {ThumbBox} from '@/components/atoms/thumb/Thumb.tsx';
 export {Tag} from '@/components/atoms/tag/Tag.tsx';
 export {GoodsGroup} from "@/components/atoms/goodsGroup/GoodsGroup.tsx";
+export {Review} from "@/components/atoms/review/Review.tsx";
 
 // molecules
 export {SearchBox} from '@/components/molecules/searchBox/SearchBox.tsx';

@@ -2,13 +2,13 @@
 import {
 	Layout,
 	CustomSwiper, ProdUnit,
-	Typography, Button,
+	Typography, Button, Icon,
 } from "@/components/index.ts";
 
 import * as S from './Main.styles.ts';
 import * as T from './TabCategory.styles.ts';
-import {tabCategories} from '@/data/tabCategory.ts';
-import type { TagData } from "@/components/molecules/prodUnit/ProdUnit.tsx"
+import * as B from './Banner.styles.ts';
+import { tabCategories, todayDeliveryList, soaringViewList } from '@/data';
 
 // 이미지 import
 import mainHero from '@/assets/main_hero.png';
@@ -35,11 +35,6 @@ const swiperItem = [
 		description: '사전쿠폰에 더해지는 나만의 혜택'
 	}
 ]
-
-const tagItems: TagData[] = [
-    { text: '증정', color: 'gray', type: 'solid' },
-    { text: '오늘드림', color: 'pink', type: 'solid' },
-];
 
 export default function Main () {
 	return (
@@ -81,43 +76,217 @@ export default function Main () {
 							지금 주문하면 바로 오는 <span className={'pink'}>오늘드림™</span>으로 만나보세요
 						</Typography>
 					</div>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} spaceBetween={20}>
-						<>
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={282} spaceBetween={24}>
+						{todayDeliveryList.map((item) => (
 							<ProdUnit
 								size={'xl'}
-								ProdView={17898}
-								thumbImg={mainHero}
-								thumbAlt={'메디힐'}
-								prodBrand={'메디힐'}
-								prodTitle={'[15년 연속 1위] 메디힐 에센셜 마스크팩10/10 +1매 기획 7종 골라담기'}
-								originVal={20000}
-								percent={50}
-								currentVal={10000}
-								tags={tagItems}
+								thumbImg={item.thumbImg}
+								thumbAlt={item.prodTitle}
+								prodBrand={item.prodBrand}
+								prodTitle={item.prodTitle}
+								originVal={item.originVal}
+								percent={item.percent}
+								currentVal={item.currentVal}
+								tags={item.tags}
+								reviewStar={item.reviewStar}
+								reviewNum={item.reviewNum}
+								bookmark
 							/>
-						</>
-						<></>
+						))}
+					</CustomSwiper>
+				</S.ContBox>
+				<S.ContBox>
+					<B.OliveBetterBanner>
+						<a href="" className={'btn-link'}></a>
+						<div className="img-area">
+							<span className="sr-only">올리브베러 브랜드 소개 보러가기</span>
+						</div>
+						<div className="text-area">
+							<span className="sub-title">올리브영이 만든 NEW 웰니스</span>
+							<h3 className="title">
+								<span className="sr-only">올리브베러</span>
+							</h3>
+							<span className="description">건강을 ‘관리’가 아닌 <span className="fw-bold">‘즐거운 발견’</span>으로</span>
+						</div>
+						<div className="view-btn-area">
+							<span className="text">
+								브랜드 소개 보러가기
+							</span>
+							<Icon name={'ctaArrow'} size={'auto'} className={'cta-arrow'} />
+						</div>
+					</B.OliveBetterBanner>
+				</S.ContBox>
+				<S.ContBox>
+					<div className="title-wrap">
+						<Typography variant={'headingMd'} weight={'bold'} color={'gray900'}>
+							💚 지금 주목해야할 브랜드
+						</Typography>
+						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
+							지금 이 순간, 가장 핫한 브랜드만 모아서
+						</Typography>
+					</div>
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={486} spaceBetween={20}>
+						{todayDeliveryList.map((item) => (
+							<ProdUnit
+								size={'md'}
+								thumbImg={item.thumbImg}
+								thumbAlt={item.prodTitle}
+								prodBrand={item.prodBrand}
+								prodTitle={item.prodTitle}
+								originVal={item.originVal}
+								percent={item.percent}
+								currentVal={item.currentVal}
+								tags={item.tags}
+								reviewStar={item.reviewStar}
+								reviewNum={item.reviewNum}
+								bookmark
+							/>
+						))}
 					</CustomSwiper>
 				</S.ContBox>
 				<S.ContBox>
 					<div className="title-wrap">
-						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
-							지금 주문하면 바로 오는 <span className={'pink'}>오늘드림™</span>으로 만나보세요
+						<Typography variant={'headingMd'} weight={'bold'} color={'black'}>
+							🫒 오직 올리브영에서만
 						</Typography>
 						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
-							지금 주문하면 바로 오는 <span className={'pink'}>오늘드림™</span>으로 만나보세요
+							이곳에서만 가능한 특별 구성
 						</Typography>
 					</div>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={88} spaceBetween={20}>
-						{tabCategories.map((item) => (
-							<T.TabSlide className="tab-slide" key={item.alt}>
-								<div className="img-area">
-									<img src={item.src} alt={item.alt} />
-								</div>
-								<div className="text-area">
-									<Typography variant={'subTitle'} weight={'semiBold'}>{item.name}</Typography>
-								</div>
-							</T.TabSlide>
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={384} spaceBetween={20}>
+						{todayDeliveryList.map((item) => (
+							<ProdUnit
+								size={'md'}
+								thumbImg={item.thumbImg}
+								thumbAlt={item.prodTitle}
+								prodBrand={item.prodBrand}
+								prodTitle={item.prodTitle}
+								originVal={item.originVal}
+								percent={item.percent}
+								currentVal={item.currentVal}
+								tags={item.tags}
+								reviewStar={item.reviewStar}
+								reviewNum={item.reviewNum}
+								bookmark
+							/>
+						))}
+					</CustomSwiper>
+				</S.ContBox>
+				<S.ContBox>
+					<div className="title-wrap">
+						<Typography variant={'headingMd'} weight={'bold'} color={'black'}>
+							📈 조회 급상승, 모두가 찾고 있어요
+						</Typography>
+						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
+							지금 이 순간, 가장 많이 찾는 아이템
+						</Typography>
+					</div>
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={220} spaceBetween={25}>
+						{soaringViewList.map((item,index) => (
+							<ProdUnit
+								key={index}
+								size={'lg'}
+								thumbImg={item.thumbImg}
+								thumbAlt={item.prodTitle}
+								prodView={item.ProdView}
+								prodBrand={item.prodBrand}
+								prodTitle={item.prodTitle}
+								originVal={item.originVal}
+								percent={item.percent}
+								currentVal={item.currentVal}
+								tags={item.tags}
+								reviewStar={item.reviewStar}
+								reviewNum={item.reviewNum}
+								bookmark
+								rank={index + 1}
+							/>
+						))}
+					</CustomSwiper>
+				</S.ContBox>
+				<S.ContBox>
+					<div className="title-wrap">
+						<Typography variant={'headingMd'} weight={'bold'} color={'black'}>
+							⭐️ 인기있는 행사만 모았어요
+						</Typography>
+						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
+							반응 좋은 행사만 골라서 보여드려요
+						</Typography>
+					</div>
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={220} spaceBetween={25}>
+						{soaringViewList.map((item,index) => (
+							<ProdUnit
+								key={index}
+								size={'lg'}
+								thumbImg={item.thumbImg}
+								thumbAlt={item.prodTitle}
+								prodView={item.ProdView}
+								prodBrand={item.prodBrand}
+								prodTitle={item.prodTitle}
+								originVal={item.originVal}
+								percent={item.percent}
+								currentVal={item.currentVal}
+								tags={item.tags}
+								reviewStar={item.reviewStar}
+								reviewNum={item.reviewNum}
+								bookmark
+								rank={index + 1}
+							/>
+						))}
+					</CustomSwiper>
+				</S.ContBox>
+				<S.ContBox>
+					<div className="title-wrap">
+						<Typography variant={'headingMd'} weight={'bold'} color={'black'}>
+							👍 이런 상품은 어때요?
+						</Typography>
+						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
+							당신을 위해 골라본 추천템
+						</Typography>
+					</div>
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={282} spaceBetween={24}>
+						{todayDeliveryList.map((item) => (
+							<ProdUnit
+								size={'xl'}
+								thumbImg={item.thumbImg}
+								thumbAlt={item.prodTitle}
+								prodBrand={item.prodBrand}
+								prodTitle={item.prodTitle}
+								originVal={item.originVal}
+								percent={item.percent}
+								currentVal={item.currentVal}
+								tags={item.tags}
+								reviewStar={item.reviewStar}
+								reviewNum={item.reviewNum}
+								bookmark
+							/>
+						))}
+					</CustomSwiper>
+				</S.ContBox>
+				<S.ContBox>
+					<div className="title-wrap">
+						<Typography variant={'headingMd'} weight={'bold'} color={'black'}>
+							🎁 Weekly Special
+						</Typography>
+						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
+							이번 주에만 만나는 특별한 구성
+						</Typography>
+					</div>
+					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={282} spaceBetween={24}>
+						{todayDeliveryList.map((item) => (
+							<ProdUnit
+								size={'xl'}
+								thumbImg={item.thumbImg}
+								thumbAlt={item.prodTitle}
+								prodBrand={item.prodBrand}
+								prodTitle={item.prodTitle}
+								originVal={item.originVal}
+								percent={item.percent}
+								currentVal={item.currentVal}
+								tags={item.tags}
+								reviewStar={item.reviewStar}
+								reviewNum={item.reviewNum}
+								bookmark
+							/>
 						))}
 					</CustomSwiper>
 				</S.ContBox>

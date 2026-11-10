@@ -4,6 +4,7 @@ export const ContWrap = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 80px;
+	margin-bottom: 80px;
 `;
 
 export const ContBox = styled.div`
@@ -14,6 +15,7 @@ export const ContBox = styled.div`
 	
 	.title-wrap {
 		display: flex;
+		align-items: center;
 		flex-direction: column;
 		
 		&:not(:has(button)) {

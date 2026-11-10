@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 type StyledProps = {
     $name: string;
-    $iconColor?: string;
     $opacity?: number;
 	$size?: 'sm' | 'md' | 'xl' | 'auto' ;
 };
@@ -20,7 +19,8 @@ const toKebabIconName = (camelStr: string) => {
 };
 
 export const Icon = styled.span<StyledProps>`
-    background-color: ${({ $iconColor }) => $iconColor};
+	display: inline-block;
+    background-color: currentColor;
     opacity: ${({ $opacity }) => $opacity};
 	${({ $name }: StyledProps) => {
 		const asset = `assets/icons/${toKebabIconName($name)}.svg`;

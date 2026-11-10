@@ -17,22 +17,11 @@ const weightClass = {
 	regular: 'font-normal'
 } as const;
 
-const colorClass = {
-	black: 'text-common-black',
-	snbPink: 'text-snb-pink',
-	green500: 'text-brand-green-500',
-	gray900: 'text-gray-900',
-	gray700: 'text-gray-700',
-	gray600: 'text-gray-600',
-	gray500: 'text-gray-500',
-	gray300: 'text-gray-300',
-	gray50: 'text-gray-50',
-	coral600: 'text-brand-coral-600'
-} as const;
+import { colorClass, type Color } from '@/styles/colors';
 
 export type TypographyVariant = keyof typeof variantClass;
 export type TypographyWeight = keyof typeof weightClass;
-export type TypographyColor = keyof typeof colorClass;
+export type TypographyColor = Color;
 
 
 type Props = {
