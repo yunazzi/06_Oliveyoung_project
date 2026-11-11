@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from './Button.styles.ts'
+import type { IconColor } from "@/components/atoms/icon/Icon.tsx";
 
 // 컴포넌트
 import {
@@ -23,7 +24,7 @@ type Props = {
 	iconStart?: string | undefined;
 	iconEnd?: string | undefined;
 	as?: React.ElementType;
-	iconColor?: string;
+	iconColor?: IconColor;
 	to?: string;
 	radius?: 'sm' | 'md';
 }

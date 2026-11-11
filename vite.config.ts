@@ -6,6 +6,7 @@ import * as path from "node:path";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/06_Oliveyoung_project/',
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] }),
@@ -16,5 +17,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, './src'),
     }
   },
-  base: '/06_Oliveyoung_project/',
 })
