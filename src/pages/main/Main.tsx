@@ -128,7 +128,7 @@ export default function Main () {
 				<S.ContBox>
 					<div className="title-wrap">
 						<Typography variant={'headingMd'} weight={'bold'} color={'gray900'}>
-							💚 지금 주목해야할 브랜드
+							🤩 지금 주목해야할 브랜드
 						</Typography>
 						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
 							지금 이 순간, 가장 핫한 브랜드만 모아서
@@ -176,7 +176,7 @@ export default function Main () {
 				<S.ContBox>
 					<div className="title-wrap">
 						<Typography variant={'headingMd'} weight={'bold'} color={'black'}>
-							🫒 오직 올리브영에서만
+							💚 오직 올리브영에서만
 						</Typography>
 						<Typography variant={'subTitle'} weight={'medium'} color={'gray700'}>
 							이곳에서만 가능한 특별 구성
