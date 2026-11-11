@@ -1,3 +1,5 @@
+/* 조회수 급상승 */
+
 import {tag} from "@/data/tags.ts";
 import thumbImg02 from "@/assets/thumb-img01.png";
 import thumbImg03 from "@/assets/thumb-img02.png";

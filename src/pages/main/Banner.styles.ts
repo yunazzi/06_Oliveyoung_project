@@ -68,3 +68,111 @@ export const OliveBetterBanner = styled.div`
 		}
 	}
 `;
+
+export const BrandBanner = styled.div`
+	position: relative;
+	width: 690px;
+	
+	.img-area {
+		position: relative;
+		width: 100%;
+		height: 432px;
+		border-radius: 20px;
+		overflow: hidden;
+		
+		img {
+			object-fit: cover;
+		}
+		
+		&::before {
+			content:"";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(28, 28, 28, 0.5) 100%);
+			pointer-events: none;
+		}
+	}
+	
+	.text-area {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+		
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		
+		.brand-like {
+			display: flex;
+    		align-items: center;
+			border: 1px solid var(--color-common-white);
+			border-radius: 8px;
+			height: 28px;
+			padding: 0 8px;
+		}
+	}
+`;
+
+export const onlyOliveBanner = styled.div`
+	position: relative;
+	
+	.img-area {
+		position: relative;
+		border-radius: 16px;
+		overflow: hidden;
+		
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.text-area {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+
+		position: absolute;
+		padding: 40px 24px;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+`;
+
+export const MediumBanner = styled.div`
+	position: relative;
+	width: 384px;
+	
+	.img-area {
+		position: relative;
+		width: 100%;
+		height: 432px;
+		border-radius: 20px;
+		overflow: hidden;
+		
+		&::before {
+			content:"";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(28, 28, 28, 0.5) 100%);
+			pointer-events: none;
+		}
+	}
+	
+	.text-area {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4px;
+		
+		position: absolute;
+		bottom: 32px;
+		padding: 0 16px;
+		width: 100%;
+		text-align: center;
+	}
+`;

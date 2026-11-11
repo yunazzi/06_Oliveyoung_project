@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const GnbArea = styled.div`
 	width: 1280px;
 	margin: 0 auto;
-	border-bottom: 4px solid var(--color-gray-300);
 	
 	.gnb-inner {
 		display: flex;

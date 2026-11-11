@@ -2,6 +2,5 @@ import styled from "styled-components";
 
 
 export const Content = styled.main`
-	//width: 1280px;
-	//margin: 0 auto;
+	border-top: 4px solid var(--color-gray-300);
 `;

@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 type StyledProps = {
 	$type?: 'hero' | 'def';
 	$width?: number;
+	$height?: number;
 };
 
 export const SwiperWrap = styled.div<StyledProps>`
@@ -80,7 +81,7 @@ export const SwiperWrap = styled.div<StyledProps>`
 
 export const DefControls = styled.div<StyledProps>`
 	position: absolute;
-    top: ${({ $width }) => ($width ? `${$width / 2}px` : '50%')};
+    top: ${({ $height }) => ($height ? `${$height / 2}px` : '50%')};
     left: 50%;
     transform: translate(-50%, -50%);
 	width: 100%;

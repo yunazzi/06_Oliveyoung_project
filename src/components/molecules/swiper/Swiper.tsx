@@ -1,7 +1,7 @@
 import * as S from './Swiper.styles.ts';
 import {Icon} from "@/components";
 
-import React, { useRef, useState, type ReactNode } from 'react';
+import React, { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -58,6 +58,25 @@ export const CustomSwiper  = ({
 	const handlePrev = () => swiperRef.current?.slidePrev();
 	const handleNext = () => swiperRef.current?.slideNext();
 
+	const [slideHeight, setSlideHeight] = useState<number>();
+
+	const measureHeight = (s: SwiperType) => {
+		const active = s.slides[s.activeIndex] as HTMLElement | undefined;
+		const img = active?.querySelector('img');
+		const h = img?.offsetHeight || active?.offsetHeight;
+		if (h) setSlideHeight(h);
+	};
+	useEffect(() => {
+		const swiper = swiperRef.current;
+		if (!swiper) return;
+
+		const ro = new ResizeObserver(() => measureHeight(swiper));
+		swiper.slides.forEach((slide) => ro.observe(slide as HTMLElement));
+		return () => ro.disconnect();
+	}, [children.length]);
+
+	const [isLocked, setIsLocked] = useState(false);
+
 	return (
 		<S.SwiperWrap $type={type} $width={width}>
 			<Swiper
@@ -67,14 +86,24 @@ export const CustomSwiper  = ({
 				slidesPerView={slidesPerView}
 				loop={loop || isHero}
 				navigation={false}
-				pagination={!isHero && pagination ? { clickable: true } : false}
+				pagination={!isHero && pagination && !isLocked ? { clickable: true } : false}
 				autoplay={
 				  autoplay || isHero
 					? { delay, disableOnInteraction: false }
 					: false
 				}
-				onSwiper={(s) => (swiperRef.current = s)}
-        		onSlideChange={(s) => setCurrent(s.realIndex + 1)}
+				watchOverflow
+				onLock={() => setIsLocked(true)}
+    			onUnlock={() => setIsLocked(false)}
+				onSwiper={(s) => {
+					swiperRef.current = s;
+					setIsLocked(s.isLocked);
+					measureHeight(s);
+				}}
+				onSlideChange={(s) => {
+					setCurrent(s.realIndex + 1);
+					measureHeight(s);
+				}}
 			>
 				{slides.map((child, i) => (
 					<SwiperSlide key={i}>{child}</SwiperSlide>
@@ -98,8 +127,8 @@ export const CustomSwiper  = ({
 					</S.HeroButtons>
 				</S.HeroControls>
 			) : (
-				navigation && (
-					<S.DefControls $width={width}>
+				navigation && !isLocked && (
+					<S.DefControls $height={slideHeight}>
 						<button className="btn-prev" onClick={handlePrev}>
 							<Icon name='leftArrow' size={'auto'} iconColor='black' />
 						</button>
