@@ -13,7 +13,7 @@ import 'swiper/css/pagination';
 
 type Props = {
 	children: ReactNode[];
-	type?: 'hero' | 'def';
+	type?: 'hero' | 'def' | 'float';
 	spaceBetween?: number;
 	slidesPerView?: number | 'auto';
 	navigation?: boolean;
@@ -46,6 +46,7 @@ export const CustomSwiper  = ({
 	const slides = React.Children.toArray(children);
 	const total = slides.length;
 	const isHero = type === 'hero';
+	const isFloat = type === 'float';
 
 	const togglePlay = () => {
 		const swiper = swiperRef.current;
@@ -82,6 +83,7 @@ export const CustomSwiper  = ({
 			<Swiper
 				className={className}
 				modules={[Autoplay, Pagination]}
+				direction={isFloat ? 'vertical' : 'horizontal'}
 				spaceBetween={spaceBetween}
 				slidesPerView={slidesPerView}
 				loop={loop || isHero}
@@ -117,23 +119,23 @@ export const CustomSwiper  = ({
 					</S.ProgressTrack>
 
 					<S.HeroButtons>
-						<Icon name='leftArrow' isButton size={'md'} iconColor='black' className='btn-prev' onClick={handlePrev} />
+						<Icon name='leftArrow' isButton size={'md'} className='btn-prev' onClick={handlePrev} />
 							<S.Fraction>
 								<span className="current">{pad(current)}</span>
 								<span className="total">{pad(total)}</span>
 							</S.Fraction>
-						<Icon name='rightArrow' isButton size={'md'} iconColor='black' className='btn-next' onClick={handleNext} />
-						<Icon name={playing ? 'pause':'rightArrow'} isButton size={'md'} iconColor='black' className={playing ? 'btn-pause':'btn-play'} onClick={togglePlay} />
+						<Icon name='rightArrow' isButton size={'md'} className='btn-next' onClick={handleNext} />
+						<Icon name={playing ? 'pause':'rightArrow'} isButton size={'md'} className={playing ? 'btn-pause':'btn-play'} onClick={togglePlay} />
 					</S.HeroButtons>
 				</S.HeroControls>
 			) : (
 				navigation && !isLocked && (
-					<S.DefControls $height={slideHeight}>
+					<S.DefControls $height={slideHeight} $type={type}>
 						<button className="btn-prev" onClick={handlePrev}>
-							<Icon name='leftArrow' size={'auto'} iconColor='black' />
+							<Icon name={isFloat ? 'upArrow' : 'leftArrow'} size={isFloat ? 'md' : 'auto'} />
 						</button>
 						<button className="btn-next" onClick={handleNext}>
-							<Icon name='rightArrow' size={'auto'} iconColor='black' />
+							<Icon name={isFloat ? 'downArrow' : 'rightArrow'} size={isFloat ? 'md' : 'auto'} />
 						</button>
 					</S.DefControls>
 				)

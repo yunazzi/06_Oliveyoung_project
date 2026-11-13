@@ -2,7 +2,7 @@ import React from "react";
 import * as S from './Layout.styles.ts';
 // 컴포넌트 import
 import {
-	Header,Footer // organisms
+	Header,Footer, // organisms
 } from "@/components/index.ts";
 
 type Props = {
@@ -10,14 +10,12 @@ type Props = {
 };
 
 export const Layout = ({
-	children
+	children,
 }:Props)=> {
 	return (
 		<>
 			<Header />
-			<S.Content>
-				{children}
-			</S.Content>
+			<S.Content>{children}</S.Content>
 			<Footer />
 		</>
 	)

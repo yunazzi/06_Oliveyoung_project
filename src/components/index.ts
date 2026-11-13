@@ -13,12 +13,13 @@ export {SearchBox} from '@/components/molecules/searchBox/SearchBox.tsx';
 export {SelectBox} from '@/components/molecules/selectBox/SelectBox.tsx';
 export {CustomSwiper} from '@/components/molecules/swiper/Swiper.tsx';
 export {ProdUnit} from '@/components/molecules/prodUnit/ProdUnit.tsx';
+export {FloatingButton} from '@/components/molecules/floatingButton/FloatingButton.tsx';
 
 // organisms
 export {Header} from '@/components/organisms/header/Header.tsx';
 export {Footer} from '@/components/organisms/footer/Footer.tsx';
 export {Gnb} from '@/components/organisms/gnb/Gnb.tsx';
-
+export {ContentWrap} from '@/components/organisms/contentWrap/ContentWrap.tsx';
 
 // layout
 export {Layout} from '@/components/layouts/Layout.tsx';

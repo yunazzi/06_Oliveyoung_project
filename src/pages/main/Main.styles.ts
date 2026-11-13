@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-export const ContWrap = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 80px;
-	margin-bottom: 80px;
-`;
-
 export const ContBox = styled.div`
 	display: flex;
 	flex-direction: column;

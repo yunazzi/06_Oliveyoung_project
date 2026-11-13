@@ -21,7 +21,7 @@ export const SearchBox = ({
 				value={keyword}
 				onChange={(e) => setKeyword(e.target.value)}
 			/>
-			<Icon name='search' isButton iconColor='black' className='btn-search' />
+			<Icon name='search' isButton className='btn-search' />
 		</S.SearchBox>
 	)
 }

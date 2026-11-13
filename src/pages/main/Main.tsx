@@ -2,7 +2,7 @@
 import {
 	Layout,
 	CustomSwiper, ProdUnit,
-	Typography, Button, Icon,
+	Typography, Button, Icon,ContentWrap,
 } from "@/components/index.ts";
 
 import * as S from './Main.styles.ts';
@@ -63,9 +63,9 @@ export default function Main () {
 				))}
 			</CustomSwiper>
 
-			<S.ContWrap className="content-wrap">
-				<S.ContBox className={'mt-28'}>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={88} spaceBetween={20}>
+			<ContentWrap showFloating className={'mt-48'}>
+				<S.ContBox>
+					<CustomSwiper navigation slidesPerView={'auto'} width={88} spaceBetween={20}>
 						{tabCategories.map((item) => (
 							<T.TabSlide className="tab-slide" key={item.alt}>
 								<div className="img-area">
@@ -85,7 +85,7 @@ export default function Main () {
 							지금 주문하면 바로 오는 <span className={'pink'}>오늘드림™</span>으로 만나보세요
 						</Typography>
 					</div>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={282} spaceBetween={24}>
+					<CustomSwiper navigation slidesPerView={'auto'} width={282} spaceBetween={24}>
 						{todayDeliveryList.map((item) => (
 							<ProdUnit
 								size={'xl'}
@@ -134,7 +134,7 @@ export default function Main () {
 							지금 이 순간, 가장 핫한 브랜드만 모아서
 						</Typography>
 					</div>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} spaceBetween={20}>
+					<CustomSwiper navigation slidesPerView={'auto'} spaceBetween={20}>
 						{brandToWatchList.map((item) => (
 							<S.BrandWrap>
 								<div className="left-area">
@@ -182,7 +182,7 @@ export default function Main () {
 							이곳에서만 가능한 특별 구성
 						</Typography>
 					</div>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={384} spaceBetween={24}>
+					<CustomSwiper navigation slidesPerView={'auto'} width={384} spaceBetween={24}>
 						{onlyOliveList.map((item) => (
 							<B.onlyOliveBanner>
 								<div className="img-area">
@@ -205,7 +205,7 @@ export default function Main () {
 							지금 이 순간, 가장 많이 찾는 아이템
 						</Typography>
 					</div>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={220} spaceBetween={25}>
+					<CustomSwiper navigation slidesPerView={'auto'} width={220} spaceBetween={25}>
 						{soaringViewList.map((item,index) => (
 							<ProdUnit
 								key={index}
@@ -236,7 +236,7 @@ export default function Main () {
 							반응 좋은 행사만 골라서 보여드려요
 						</Typography>
 					</div>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={384} spaceBetween={24}>
+					<CustomSwiper navigation slidesPerView={'auto'} width={384} spaceBetween={24}>
 						{bigEventList.map((item) => (
 							<S.EventWrap>
 								<div className="top-area">
@@ -282,7 +282,7 @@ export default function Main () {
 							당신을 위해 골라본 추천템
 						</Typography>
 					</div>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={282} spaceBetween={24}>
+					<CustomSwiper navigation slidesPerView={'auto'} width={282} spaceBetween={24}>
 						{todayDeliveryList.map((item) => (
 							<ProdUnit
 								size={'xl'}
@@ -310,7 +310,7 @@ export default function Main () {
 							이번 주에만 만나는 특별한 구성
 						</Typography>
 					</div>
-					<CustomSwiper type={'def'} navigation slidesPerView={'auto'} width={384} spaceBetween={24}>
+					<CustomSwiper navigation slidesPerView={'auto'} width={384} spaceBetween={24}>
 						{weeklySpecialList.map((item) => (
 							<B.MediumBanner>
 								<div className="img-area">
@@ -324,7 +324,7 @@ export default function Main () {
 						))}
 					</CustomSwiper>
 				</S.ContBox>
-			</S.ContWrap>
+			</ContentWrap>
 		</Layout>
 	)
 }

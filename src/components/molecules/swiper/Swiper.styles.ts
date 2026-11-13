@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 type StyledProps = {
-	$type?: 'hero' | 'def';
+	$type?: 'hero' | 'def' | 'float';
 	$width?: number;
 	$height?: number;
 };
@@ -77,13 +77,22 @@ export const SwiperWrap = styled.div<StyledProps>`
 			margin: 0 auto;
 		`
 	}
+	${({ $type }) =>
+	$type === 'float' &&
+		css`
+			.swiper {
+				height: 260px;
+			}
+			.swiper-slide {
+				width: 100%;
+				height: 96px;
+			}
+		`
+	}
 `;
 
 export const DefControls = styled.div<StyledProps>`
 	position: absolute;
-    top: ${({ $height }) => ($height ? `${$height / 2}px` : '50%')};
-    left: 50%;
-    transform: translate(-50%, -50%);
 	width: 100%;
 	max-width: 1200px;
 	height: 0;
@@ -92,28 +101,54 @@ export const DefControls = styled.div<StyledProps>`
 	
 	.btn-prev, .btn-next {
 		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
 		pointer-events: auto;
 		cursor: pointer;
-		
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 44px;
-		height: 44px;
-		border-radius: 12px;
-		background: var(--color-common-white);
-		box-shadow: 0 2px 4px 0 rgba(48, 47, 44, 0.2);
-		
-		span {
-			display: inline-block;
-			width: 28px;
-			height: 28px;
-		}
 	}
-	.btn-prev { left: -22px; }
-    .btn-next { right: -22px; }
+	
+	${({ $type }) =>
+		$type === 'float' &&
+		css`
+			.btn-prev, .btn-next {
+				width: 32px;
+				height: 32px;
+				padding: 4px;
+				left: 50%;
+    			transform: translateX(-50%);
+			}
+			.btn-prev { top: -296px; }
+			.btn-next { bottom: -36px; }
+		`
+	}
+	
+	${({ $type, $height }) =>
+		$type === 'def' && $height &&
+		css`
+			top: ${($height ? `${$height / 2}px` : '50%')};
+			left: 50%;
+			transform: translate(-50%, -50%);
+			
+			.btn-prev, .btn-next {
+				top: 50%;
+				transform: translateY(-50%);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 44px;
+				height: 44px;
+				border-radius: 12px;
+				background: var(--color-common-white);
+				box-shadow: 0 2px 4px 0 rgba(48, 47, 44, 0.2);
+				
+				span {
+					display: inline-block;
+					width: 28px;
+					height: 28px;
+				}
+			}
+			.btn-prev { left: -22px; }
+			.btn-next { right: -22px; }
+		`
+	}
 `;
 
 // 메인 히어로배너 swiper
