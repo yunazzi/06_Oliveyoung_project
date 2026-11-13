@@ -5,11 +5,6 @@ export const FooterWrap = styled.footer`
 	padding-top: 36px;
 	padding-bottom: 56px;
 	
-	//position: absolute;
-	//left: 0;
-	//right: 0;
-	//bottom: 0;
-	
 	.footer-inner {
 		width: 1200px;
 		margin: 0 auto;
@@ -23,6 +18,7 @@ export const FooterTopArea = styled.div`
 	.left-area {
 		.logo-area {
 			margin-top: 28px;
+			width: 283px;
 		}
 		
 		.footer-info {
@@ -118,7 +114,13 @@ export const FooterBottomArea = styled.div`
 				display: flex;
 				align-items: center;
 				gap: 4px;
+				height: 36px;
 				
+				img {
+					width: 36px;
+					height: 36px;
+				}
+
 				.text-box {
 					p {
 						font-size: 10px;
