@@ -125,7 +125,7 @@ export const CustomSwiper  = ({
 								<span className="total">{pad(total)}</span>
 							</S.Fraction>
 						<Icon name='rightArrow' isButton size={'md'} className='btn-next' onClick={handleNext} />
-						<Icon name={playing ? 'pause':'rightArrow'} isButton size={'md'} className={playing ? 'btn-pause':'btn-play'} onClick={togglePlay} />
+						<Icon name={playing ? 'pause':'play'} isButton size={'md'} className={playing ? 'btn-pause':'btn-play'} onClick={togglePlay} />
 					</S.HeroButtons>
 				</S.HeroControls>
 			) : (

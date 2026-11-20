@@ -64,97 +64,95 @@ const snsItem = [
 
 export const Footer = () => {
 	return(
-		<>
-			<S.FooterWrap>
-				<div className="footer-inner">
-					<S.FooterTopArea>
-						<div className="left-area">
-							<S.MenuList>
-								{FooterMenuItem.map((item, idx) => (
-									<li key={idx}>
-										<Button as={Link} to={item.to} type='text' size='xs' text={item.text} color={'gray700'} />
-									</li>
-								))}
-							</S.MenuList>
-							<div className="logo-area">
-								<a href="javascript:" className="footer-logo">
-									<img src={footerLogo} alt="Oliveyoung Logo" />
-								</a>
-							</div>
-							<div className="footer-info">
-								{footerInfo.map((item) => (
-									<Typography variant='caption' weight='medium' as={'p'} color={'gray700'}>{item.children}</Typography>
-								))}
-							</div>
-						</div>
-
-						<div className="right-area">
-							<SelectBox
-								type={'footer'}
-								title={'CJ 패밀리 사이트'}
-								options={familySiteOptions}
-								onChange={(url) => url && window.open(url, '_blank', 'noopener,noreferrer')}
-							/>
-
-							<div className="customer-box">
-								<Typography variant='headingMd' weight={'bold'} as={'p'} color={'gray600'}>1577-4887</Typography>
-								<div className="customer-info">
-									<Typography variant='caption' as={'span'} color={'gray700'}>
-										일반 문의 : 9:00 - 18:00 (평일)
-									</Typography>
-									<Typography variant='caption' as={'span'} color={'gray700'}>
-										오늘드림 : 09:00 - 23:00 (평일, 주말)
-									</Typography>
-								</div>
-							</div>
-
-							<div className="btn-wrap">
-								{footerButtonWrapCont.map((item) => (
-									<Button type={'outline'} size={'xs'} text={item.text} color={'gray700'} status={'defFooter'} className={'w100'} />
-								))}
-							</div>
-						</div>
-					</S.FooterTopArea>
-					<S.FooterBottomArea>
-						<div className="ba-top-box">
-							<ul className="term-info-list">
-								{termInfo.map((item, idx) => (
-									<li key={idx}>
-										<Typography as={'a'} variant={'caption'} weight={item.weight} color={'gray700'}>{item.info}</Typography>
-									</li>
-								))}
-							</ul>
-							<Typography variant={'caption'} color={'gray700'}>Copyright ⓒ CJ OliveYoung. All Rights Reserved.</Typography>
-						</div>
-						<div className="ba-bottom-box">
-							<ul className="certification-mark">
-								<li>
-									<img src={markLogo1} />
-									<span className="text-box">
-										<p>올리브영 국내, 올리브영 글로벌, 디플롯 운영</p>
-										<p>2024. 12. 04 ~ 2027. 12. 03</p>
-									</span>
+		<S.FooterWrap>
+			<div className="footer-inner">
+				<S.FooterTopArea>
+					<div className="left-area">
+						<S.MenuList>
+							{FooterMenuItem.map((item, idx) => (
+								<li key={idx}>
+									<Button as={Link} to={item.to} type='text' size='xs' text={item.text} color={'gray700'} />
 								</li>
-								<li>
-									<img src={markLogo2} />
-									<span className="text-box">
-										<Typography variant={'caption'} color={'gray700'}>소비자중심경영 인증</Typography>
-									</span>
-								</li>
-							</ul>
-							<ul className="sns-area">
-								{snsItem.map((item) => (
-									<li className="sns-item">
-										<a href="javascript:">
-											<img src={item.snsLogo} alt={item.snsName + ` 바로가기`} />
-										</a>
-									</li>
-								))}
-							</ul>
+							))}
+						</S.MenuList>
+						<div className="logo-area">
+							<a href="javascript:" className="footer-logo">
+								<img src={footerLogo} alt="Oliveyoung Logo" />
+							</a>
 						</div>
-					</S.FooterBottomArea>
-				</div>
-			</S.FooterWrap>
-		</>
+						<div className="footer-info">
+							{footerInfo.map((item) => (
+								<Typography variant='caption' weight='medium' as={'p'} color={'gray700'}>{item.children}</Typography>
+							))}
+						</div>
+					</div>
+
+					<div className="right-area">
+						<SelectBox
+							type={'footer'}
+							title={'CJ 패밀리 사이트'}
+							options={familySiteOptions}
+							onChange={(url) => url && window.open(url, '_blank', 'noopener,noreferrer')}
+						/>
+
+						<div className="customer-box">
+							<Typography variant='headingMd' weight={'bold'} as={'p'} color={'gray600'}>1577-4887</Typography>
+							<div className="customer-info">
+								<Typography variant='caption' as={'span'} color={'gray700'}>
+									일반 문의 : 9:00 - 18:00 (평일)
+								</Typography>
+								<Typography variant='caption' as={'span'} color={'gray700'}>
+									오늘드림 : 09:00 - 23:00 (평일, 주말)
+								</Typography>
+							</div>
+						</div>
+
+						<div className="btn-wrap">
+							{footerButtonWrapCont.map((item) => (
+								<Button type={'outline'} size={'xs'} text={item.text} color={'gray700'} status={'defFooter'} className={'w100'} />
+							))}
+						</div>
+					</div>
+				</S.FooterTopArea>
+				<S.FooterBottomArea>
+					<div className="ba-top-box">
+						<ul className="term-info-list">
+							{termInfo.map((item, idx) => (
+								<li key={idx}>
+									<Typography as={'a'} variant={'caption'} weight={item.weight} color={'gray700'}>{item.info}</Typography>
+								</li>
+							))}
+						</ul>
+						<Typography variant={'caption'} color={'gray700'}>Copyright ⓒ CJ OliveYoung. All Rights Reserved.</Typography>
+					</div>
+					<div className="ba-bottom-box">
+						<ul className="certification-mark">
+							<li>
+								<img src={markLogo1} />
+								<span className="text-box">
+									<p>올리브영 국내, 올리브영 글로벌, 디플롯 운영</p>
+									<p>2024. 12. 04 ~ 2027. 12. 03</p>
+								</span>
+							</li>
+							<li>
+								<img src={markLogo2} />
+								<span className="text-box">
+									<Typography variant={'caption'} color={'gray700'}>소비자중심경영 인증</Typography>
+								</span>
+							</li>
+						</ul>
+						<ul className="sns-area">
+							{snsItem.map((item) => (
+								<li className="sns-item">
+									<a href="javascript:">
+										<img src={item.snsLogo} alt={item.snsName + ` 바로가기`} />
+									</a>
+								</li>
+							))}
+						</ul>
+					</div>
+				</S.FooterBottomArea>
+			</div>
+		</S.FooterWrap>
 	)
 }

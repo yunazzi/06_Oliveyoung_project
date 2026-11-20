@@ -3,9 +3,10 @@ import * as S from './Input.styles.ts'
 
 type Props = {
 	placeholder?: string;
-	type?: 'text' | 'search';
+	type?: 'text' | 'search' | 'number';
 	title?: string;
 	value?: string;
+	maxLength?: number;
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -14,16 +15,28 @@ export const Input = ({
 	placeholder,
 	title = '',
 	value,
-	onChange
+	onChange,
+	maxLength
 }:Props) => {
+	const isNumber = type === 'number';
+	 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (isNumber && maxLength && e.target.value.length > maxLength) {
+            e.target.value = e.target.value.slice(0, maxLength);
+        }
+        onChange?.(e);
+    };
+
 	return(
 		<S.Input
 			type={type}
+			inputMode={isNumber ? 'tel' : undefined}
 			placeholder={placeholder}
-			className={'ui-input'}
+			className={isNumber && maxLength ? 'ui-input num-maxlength' : 'ui-input'}
 			title={title}
 			value={value}
-			onChange={onChange}
+			onChange={handleChange}
+			maxLength={!isNumber ? maxLength : undefined}
+			data-maxlength={isNumber ? maxLength : undefined}
 		>
 		</S.Input>
 	)

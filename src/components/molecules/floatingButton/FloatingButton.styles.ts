@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const FloatingButton = styled.div`
 	position: sticky;
 	top: 48px;
-	//right: 160px;
-	//z-index: 10;
 	
 	width: 120px;
 	display: flex;

@@ -4,6 +4,7 @@ export const FooterWrap = styled.footer`
 	background-color: var(--color-gray-200);
 	padding-top: 36px;
 	padding-bottom: 56px;
+	border-top: 2px solid var(--color-gray-200);
 	
 	.footer-inner {
 		width: 1200px;

@@ -135,7 +135,7 @@ export const DefControls = styled.div<StyledProps>`
 				justify-content: center;
 				width: 44px;
 				height: 44px;
-				border-radius: 12px;
+				border-radius: var(--radius-md);
 				background: var(--color-common-white);
 				box-shadow: 0 2px 4px 0 rgba(48, 47, 44, 0.2);
 				
