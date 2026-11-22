@@ -84,5 +84,6 @@ export const Button = styled.button<StyledProps>`
         background-color: ${style.bg};
         border: 1px solid ${style.border};
     `;
+	
 }}
 `;

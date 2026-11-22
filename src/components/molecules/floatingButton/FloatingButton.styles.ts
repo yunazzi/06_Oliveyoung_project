@@ -8,6 +8,7 @@ export const FloatingButton = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+	z-index: 999;
 `;
 export const RecentlyViewedProd = styled.div`
 	display: flex;

@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-export const Input = styled.input`
+type StyledProps = {
+    $value?: string;
+};
+
+export const Input = styled.input<StyledProps>`
 	border-radius: var(--radius-md);
 	outline: none;
 	height: 44px;
 	padding: 0 12px;
 	background: var(--color-common-white);
-	border: 4px solid var(--color-gray-200);
+	border: 1px solid var(--color-gray-200);
 	
 	&::placeholder {
 		color: var(--color-gray-700);

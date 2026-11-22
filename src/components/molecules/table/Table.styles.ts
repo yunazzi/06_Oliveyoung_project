@@ -34,8 +34,19 @@ export const Table = styled.table<StyledProps>`
 			}
 		` : css `
 			/* thead가 없을 경우 */
-			tbody th {
-				text-align: left;
+			tbody {
+				tr {
+					&:first-of-type {
+						th, td {
+							padding-top: 0;
+						}
+					}
+					
+					th, td {
+						text-align: left;
+						padding-top: 20px;
+					}
+				}
 			}
 		`
 	}

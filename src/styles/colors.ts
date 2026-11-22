@@ -9,6 +9,7 @@ export const colorClass = {
 	gray300: 'text-gray-300',
 	gray50: 'text-gray-50',
 	coral600: 'text-brand-coral-600',
+	coral500: 'text-brand-coral-500',
 	green500: 'text-brand-green-500',
 } as const;
 

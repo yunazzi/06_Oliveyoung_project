@@ -1,5 +1,5 @@
 import * as S from './InputBox.styles.ts';
-import {Icon, Input} from "@/components";
+import {Input} from "@/components";
 
 type Props = {
 	type?: 'text' | 'search' | 'number';
@@ -26,14 +26,14 @@ export const InputBox = ({
 				maxLength={maxLength}
 				value={value}
 			/>
-			<Icon
+			{/*<Icon
 				isButton
 				name={'clear'}
 				size={'md'}
 				iconColor={'gray500'}
 				offscreen={'닫기'}
 				className={'btn-input-del'}
-			/>
+			/>*/}
 		</S.InputBox>
 	)
 }

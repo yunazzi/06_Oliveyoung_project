@@ -4,10 +4,11 @@ export const InputBox = styled.div`
 	position: relative;
 	display: flex;
 	align-items: center;
-	width: 100%;
+    flex: 1;
 	
 	.ui-input {
 		position: relative;
+        flex: 1;
 	}
 	.btn-input-del {
 		position: absolute;

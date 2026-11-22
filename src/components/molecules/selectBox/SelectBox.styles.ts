@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import downArrow from '/assets/icons/ic-down-arrow.svg';
 
 type StyledProps = {
 	$type: 'def' | 'footer';
@@ -20,7 +21,7 @@ export const SelectBox = styled.select<StyledProps>`
 	
 	/* 커스텀 화살표 */
 	background-color: ${({$type}) => ($type === 'def' ? 'var(--color-common-white)':'')};
-	background-image: url(/public/assets/icons/ic-down-arrow.svg);
+	background-image: url(${downArrow});
 	background-repeat: no-repeat;
 	background-position: right ${({$type}) => ($type === 'def' ? '12px' : '4px')} center;
 	background-size: 24px;
