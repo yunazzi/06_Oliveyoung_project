@@ -81,8 +81,8 @@ export const Footer = () => {
 							</a>
 						</div>
 						<div className="footer-info">
-							{footerInfo.map((item) => (
-								<Typography variant='caption' weight='medium' as={'p'} color={'gray700'}>{item.children}</Typography>
+							{footerInfo.map((item,idx) => (
+								<Typography key={idx} variant='caption' weight='medium' as={'p'} color={'gray700'}>{item.children}</Typography>
 							))}
 						</div>
 					</div>
@@ -108,8 +108,8 @@ export const Footer = () => {
 						</div>
 
 						<div className="btn-wrap">
-							{footerButtonWrapCont.map((item) => (
-								<Button type={'outline'} size={'xs'} text={item.text} color={'gray700'} status={'defFooter'} className={'w100'} />
+							{footerButtonWrapCont.map((item,idx) => (
+								<Button key={idx} type={'outline'} size={'xs'} text={item.text} color={'gray700'} status={'defFooter'} className={'w100'} />
 							))}
 						</div>
 					</div>
@@ -142,8 +142,8 @@ export const Footer = () => {
 							</li>
 						</ul>
 						<ul className="sns-area">
-							{snsItem.map((item) => (
-								<li className="sns-item">
+							{snsItem.map((item,idx) => (
+								<li className="sns-item" key={idx}>
 									<a href="javascript:">
 										<img src={item.snsLogo} alt={item.snsName + ` 바로가기`} />
 									</a>

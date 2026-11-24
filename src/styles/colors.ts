@@ -11,6 +11,7 @@ export const colorClass = {
 	coral600: 'text-brand-coral-600',
 	coral500: 'text-brand-coral-500',
 	green500: 'text-brand-green-500',
+	green600: 'text-brand-green-600',
 } as const;
 
 export type Color = keyof typeof colorClass;

@@ -7,6 +7,12 @@ export const OrderWrap = styled.div`
 		max-width: 1200px;
 		margin: 0 auto;
 	}
+	
+	.input-group {
+		display: flex;
+		align-items: center;
+		width: 420px;
+	}
 `;
 
 export const ContentWrap = styled.div`
@@ -35,6 +41,12 @@ export const ContBox = styled.div`
         .right-area {
             margin-left: auto;
         }
+		
+		.apply-coupon {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
 	}
     
     .info-box {
@@ -54,28 +66,24 @@ export const ContBox = styled.div`
             gap: 4px;
         }
     }
-    
-    .form-list {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        
-        .form-item {
-            .form-title {
-                margin-bottom: 4px;
-                display: flex;
-                gap: 8px;
-            }
-        }
-        .form-cont {
-            display: flex;
-            gap: 12px;
-            
-            .w100 {
-                width: 100px;
-            }
-        }
-    }
+	
+	.coupon-notice-info {
+		display: flex;
+		gap: 12px;
+		
+		.notice-box {
+			display: flex;
+			flex: 1;
+			background-color: var(--color-common-white);
+			border: 1px solid var(--color-gray-200);
+			border-radius: 12px;
+			padding: 12px;
+			
+			.right-area {
+				margin-left: auto;
+			}
+		}
+	}
 `;
 
 export const AsideWrap = styled.div`
@@ -87,10 +95,4 @@ export const AsideWrap = styled.div`
     max-height: 720px;
     top: 0;
     z-index: 9;
-`;
-
-export const flexWrap = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 12px;
 `;

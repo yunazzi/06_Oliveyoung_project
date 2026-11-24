@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 type styledProps = {
-	$size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'; // xs - 120 | sm - 168 | md - 204 | lg - 220 | xl - 282
+	$size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'; // xs - 120 | sm - 168 | md - 204 | lg - 220 | xl - 282
 }
 
 const sizeStyles = {
+	xxs: {size:'80px', radius: '8px'},
 	xs: {size:'120px', radius: '8px'},
 	sm: {size:'168px', radius: '12px'},
 	md: {size:'204px', radius: '12px'},

@@ -3,7 +3,7 @@ import {Icon, Tag, Typography} from "@/components";
 import {useState} from "react";
 
 type Props = {
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'; // 120 | 168 | 204 | 220 | 282
+	size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'; // 80 | 120 | 168 | 204 | 220 | 282
 	thumbImg?: string;
 	thumbAlt?: string;
 	bookmark?: boolean;

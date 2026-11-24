@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 type StyledProps = {
-    $type: 'solid' | 'outline' | 'text' ;
+    $type?: 'solid' | 'outline' | 'text' ;
     $size: 'xs' | 'sm' | 'md' | 'lg' | 'auto';
 	$hasIcon?: boolean;
 	to?: string;
@@ -74,6 +74,10 @@ export const Button = styled.button<StyledProps>`
 	
 	span {
 	    display: inline-block;
+	}
+	
+	&.w100 {
+		width: 100px;
 	}
 	
 	${({ $type, $status = 'def' }) => {

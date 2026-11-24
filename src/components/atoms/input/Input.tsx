@@ -16,7 +16,7 @@ export const Input = ({
 	title = '',
 	value,
 	onChange,
-	maxLength
+	maxLength,
 }:Props) => {
 	const isNumber = type === 'number';
 	 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

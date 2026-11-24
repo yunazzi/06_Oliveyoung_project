@@ -8,7 +8,6 @@ export {Tag} from '@/components/atoms/tag/Tag.tsx';
 export {GoodsGroup} from "@/components/atoms/goodsGroup/GoodsGroup.tsx";
 export {Review} from "@/components/atoms/review/Review.tsx";
 export {BreadCrumbs} from "@/components/atoms/breadCrumbs/BreadCrumbs.tsx";
-export {InputBox} from "@/components/molecules/inputBox/InputBox.tsx";
 
 // molecules
 export {SearchBox} from '@/components/molecules/searchBox/SearchBox.tsx';
@@ -18,6 +17,9 @@ export {ProdUnit} from '@/components/molecules/prodUnit/ProdUnit.tsx';
 export {FloatingButton} from '@/components/molecules/floatingButton/FloatingButton.tsx';
 export {PageTitle} from '@/components/molecules/pageTitle/PageTitle.tsx';
 export {Table} from '@/components/molecules/table/Table.tsx';
+export {FoldingBox} from '@/components/molecules/foldingBox/FoldingBox.tsx';
+export {InputBox} from "@/components/molecules/inputBox/InputBox.tsx";
+export {FormList} from "@/components/molecules/formList/FormList.tsx";
 
 // organisms
 export {Header} from '@/components/organisms/header/Header.tsx';

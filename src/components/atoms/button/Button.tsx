@@ -14,8 +14,8 @@ import type {
 } from "@/components/atoms/typography/Typography.tsx";
 
 type Props = {
-	type: 'solid' | 'outline' | 'text' ;
-	size: 'xs' | 'sm' | 'md' | 'lg' | 'auto'; // 36px | 44px | 48px | 60px
+	type?: 'solid' | 'outline' | 'text' ;
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'auto'; // 36px | 44px | 48px | 60px
 	status?: 'def' | 'defFooter' | 'select' | 'disabled';
 	className?: string;
 	color?: TypographyColor;

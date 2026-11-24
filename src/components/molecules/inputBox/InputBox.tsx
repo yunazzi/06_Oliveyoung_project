@@ -8,6 +8,7 @@ type Props = {
 	maxLength?: number;
 	gap?: 'sm' | 'md'; // sm - 8px | md - 12px
 	value?: string;
+	className?: string;
 };
 
 export const InputBox = ({
@@ -15,10 +16,11 @@ export const InputBox = ({
 	title,
 	type,
 	maxLength,
-	value
+	value,
+	className,
 }:Props) => {
 	return (
-		<S.InputBox>
+		<S.InputBox className={className}>
 			<Input
 				type={type}
 				placeholder={placeholder}

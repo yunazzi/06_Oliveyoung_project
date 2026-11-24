@@ -14,4 +14,8 @@ export const InputBox = styled.div`
 		position: absolute;
 		right: 12px;
 	}
+	
+	&.w180 {
+		min-width: 180px;
+	}
 `;
