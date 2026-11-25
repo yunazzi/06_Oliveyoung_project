@@ -3,6 +3,7 @@ export const colorClass = {
 	white: 'text-common-white',
 	snbPink: 'text-snb-pink',
 	gray900: 'text-gray-900',
+	gray800: 'text-gray-800',
 	gray700: 'text-gray-700',
 	gray600: 'text-gray-600',
 	gray500: 'text-gray-500',

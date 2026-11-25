@@ -13,6 +13,21 @@ export const OrderWrap = styled.div`
 		align-items: center;
 		width: 420px;
 	}
+	
+	.cont-title {
+        display: flex;
+		border-bottom: 1px solid var(--color-gray-300);
+        
+        .right-area {
+            margin-left: auto;
+        }
+		
+		.apply-coupon {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+	}
 `;
 
 export const ContentWrap = styled.div`
@@ -33,21 +48,6 @@ export const ContBox = styled.div`
 	background: var(--color-common-white);
 	padding: 24px;
 	border-radius: 20px;
-	
-	.cont-title {
-        display: flex;
-		border-bottom: 1px solid var(--color-gray-300);
-        
-        .right-area {
-            margin-left: auto;
-        }
-		
-		.apply-coupon {
-			display: flex;
-			align-items: center;
-			gap: 8px;
-		}
-	}
     
     .info-box {
         display: flex;
@@ -95,4 +95,19 @@ export const AsideWrap = styled.div`
     max-height: 720px;
     top: 0;
     z-index: 9;
+	
+	.price-info-footer {
+		display: flex;
+		align-items: center;
+		border-top: 1px solid var(--color-gray-300);
+		margin-top: 12px;
+		padding-top: 16px;
+		
+		.goods-group {
+			margin-left: auto;
+			display: flex;
+			align-items: center;
+			gap: 4px;
+		}
+	}
 `;

@@ -29,6 +29,49 @@ const deliveryMessage: SelectOption[] = [
 	{label: '직접입력'},
 ]
 
+const totalOrderTable = {
+	tableWidth: [
+		{ width: '116px' },
+		{ width: 'auto' }
+	],
+	tbody: [
+		{
+			text: <Typography variant={'subTitle'} weight={'medium'} color={'gray800'}>총 상품 금액</Typography>,
+			td: [{text: <Typography variant={'subTitle'} weight={'semiBold'}>34,600원</Typography>,}]
+		},
+		{
+			paddingTop: 8,
+			text: <Typography variant={'subTitle'} weight={'medium'} color={'gray800'}>쿠폰 할인 금액</Typography>,
+			td: [{text: <Typography variant={'subTitle'} weight={'semiBold'}>-4,000원</Typography>,}]
+		},
+		{
+			paddingTop: 16,
+			text: <Typography variant={'subTitle'} weight={'medium'} color={'gray800'}>CJ ONE 포인트</Typography>,
+			td: [{text: <Typography variant={'subTitle'} weight={'semiBold'}>0P</Typography>,}]
+		},
+		{
+			paddingTop: 8,
+			text: <Typography variant={'subTitle'} weight={'medium'} color={'gray800'}>올리브 포인트</Typography>,
+			td: [{text: <Typography variant={'subTitle'} weight={'semiBold'}>0P</Typography>,}]
+		},
+		{
+			paddingTop: 16,
+			text: <Typography variant={'subTitle'} weight={'medium'} color={'gray800'}>총 배송비</Typography>,
+			td: [{text: <Typography variant={'subTitle'} weight={'semiBold'}>5,500원</Typography>,}]
+		},
+		{
+			paddingTop: 12,
+			text: <Typography color={'gray700'}>- 올리브영 배송</Typography>,
+			td: [{text: <Typography color={'gray700'}>0원</Typography>,}]
+		},
+		{
+			paddingTop: 4,
+			text: <Typography color={'gray700'}>- 제휴 브랜드 배송</Typography>,
+			td: [{text: <Typography color={'gray700'}>5,500원</Typography>,}]
+		}
+	]
+}
+
 const orderTable = {
 	tableWidth: [
 		{ width: '116px' },
@@ -46,6 +89,7 @@ const orderTable = {
 			]
 		},
 		{
+			paddingTop: 20,
 			text: '전화번호',
 			td: [
 				{text:
@@ -57,6 +101,7 @@ const orderTable = {
 			]
 		},
 		{
+			paddingTop: 20,
 			text: '이메일',
 			td: [
 				{text:
@@ -202,7 +247,23 @@ export default function Order () {
 							</S.ContBox>
 						</S.ContWrap>
 						<S.AsideWrap>
-
+							<div className="cont-title pb-8 mb-12">
+								<Typography variant={'title'} weight={'bold'}>최종 결제 정보</Typography>
+							</div>
+							<div className="tbl-info-wrap">
+								<Table
+									tableWidth={totalOrderTable.tableWidth}
+									tbody={totalOrderTable.tbody}
+									textAlign={'right'}
+								/>
+								<div className="price-info-footer">
+									<Typography variant={'subTitle'} weight={'bold'} color={'gray800'}>최종 결제 금액</Typography>
+									<div className="goods-group">
+										<Typography variant={'headingSm'} weight={'bold'} color={'coral600'}>36,100</Typography>
+										<Typography variant={'subTitle'} weight={'semiBold'}>원</Typography>
+									</div>
+								</div>
+							</div>
 						</S.AsideWrap>
 					</S.ContentWrap>
 				</div>

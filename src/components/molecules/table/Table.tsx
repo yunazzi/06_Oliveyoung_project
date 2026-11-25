@@ -7,6 +7,8 @@ type Props = {
 	tableWidth?: TableW[];
 	thead?: Thead[];
 	tbody?: Tbody[];
+	textAlign?: 'left' | 'center' | 'right';
+	paddingTop?: number;
 };
 
 export type TableW = {
@@ -18,8 +20,9 @@ export type Thead = {
 }
 
 export type Tbody = {
-	text?: string;
+	text?: ReactNode;
 	td?: Td[];
+	paddingTop?: number;
 }
 
 export type Td = {
@@ -32,9 +35,11 @@ export const Table = ({
 	tableWidth = [],
 	thead = [],
 	tbody = [],
+	textAlign = 'left',
+	paddingTop
 }:Props) => {
 	return (
-		<S.Table $type={type}>
+		<S.Table $type={type} $textAlign={textAlign} $paddingTop={paddingTop}>
 			<caption>{caption}</caption>
 			<colgroup>
 				{tableWidth.map((item, idx) => (
@@ -52,12 +57,12 @@ export const Table = ({
 			)}
 			<tbody>
 				{tbody.map((item, idx) => (
-					<tr key={idx}>
+					<S.Tr key={idx} $paddingTop={item.paddingTop}>
 						{item.text && <th>{item.text}</th>}
 						{item.td?.map((cont,tdIdx) => (
 							<td key={tdIdx}>{cont.text}</td>
 						))}
-					</tr>
+					</S.Tr>
 				))}
 			</tbody>
 		</S.Table>

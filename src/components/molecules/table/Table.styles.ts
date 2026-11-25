@@ -2,6 +2,8 @@ import styled, {css} from "styled-components";
 
 type StyledProps = {
 	$type?: 'col' | 'row';
+	$textAlign?: 'left' | 'center' | 'right';
+	$paddingTop?: number;
 }
 
 export const Table = styled.table<StyledProps>`
@@ -21,7 +23,7 @@ export const Table = styled.table<StyledProps>`
 		border: 0;
 	}
 	
-	${({$type}) =>
+	${({$type, $textAlign, $paddingTop}) =>
 		$type === 'col'		
 		? css`
 			/* thead가 있을 경우 */
@@ -35,19 +37,30 @@ export const Table = styled.table<StyledProps>`
 		` : css `
 			/* thead가 없을 경우 */
 			tbody {
-				tr {
-					&:first-of-type {
-						th, td {
-							padding-top: 0;
-						}
-					}
-					
+				th, td {
+					padding-top: ${$paddingTop}px;
+				}
+				th {
+					text-align: left;
+				}
+				td {
+					text-align: ${$textAlign};
+				}
+				
+				tr:first-of-type {
 					th, td {
-						text-align: left;
-						padding-top: 20px;
+						padding-top: 0;
 					}
 				}
 			}
 		`
 	}
+`;
+
+export const Tr = styled.tr<{$paddingTop?: number}>`
+    ${({$paddingTop}) => $paddingTop !== undefined && css`
+        && > th, && > td {
+            padding-top: ${$paddingTop}px;
+        }
+    `}
 `;
