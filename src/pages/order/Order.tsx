@@ -1,7 +1,7 @@
 import {
 	Layout, Typography, BreadCrumbs,
 	PageTitle, Table, InputBox, SelectBox,
-	Button, Tag, FoldingBox, FormList
+	Button, Tag, FoldingBox, FormList, Box
 } from "@/components";
 
 import * as S from './Order.styles.ts';
@@ -153,7 +153,17 @@ const formList = [
 		value: '예치금은 최소 1,000원 이상 보유 시 10원 단위로 사용 가능해요',
 		btnText: '전액 사용'
 	}
-]
+];
+
+const foldList = [
+	{
+		title: "전체동의",
+		children:
+			<>
+			</>
+		,
+	}
+];
 
 export default function Order () {
 	return (
@@ -263,6 +273,14 @@ export default function Order () {
 										<Typography variant={'subTitle'} weight={'semiBold'}>원</Typography>
 									</div>
 								</div>
+								<Box>
+									<Typography weight={'medium'} color={'gray800'}>
+										주문 상품정보 및 결제 대행 서비스 이용약관에 모두 동의하십니까?
+									</Typography>
+									<FoldingBox
+										foldList={foldList}
+									/>
+								</Box>
 							</div>
 						</S.AsideWrap>
 					</S.ContentWrap>

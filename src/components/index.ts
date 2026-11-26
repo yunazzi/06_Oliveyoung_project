@@ -3,6 +3,7 @@ export {Typography} from '@/components/atoms/typography/Typography.tsx';
 export {Icon} from '@/components/atoms/icon/Icon.tsx';
 export {Input} from '@/components/atoms/input/Input.tsx';
 export {Button} from '@/components/atoms/button/Button.tsx';
+export {Box} from '@/components/atoms/box/Box.tsx';
 export {ThumbBox} from '@/components/atoms/thumb/Thumb.tsx';
 export {Tag} from '@/components/atoms/tag/Tag.tsx';
 export {GoodsGroup} from "@/components/atoms/goodsGroup/GoodsGroup.tsx";

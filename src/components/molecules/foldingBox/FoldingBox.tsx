@@ -1,44 +1,55 @@
+import React, {useState} from "react";
 import * as S from './FoldingBox.styles.ts';
-import {Button, Typography, ThumbBox} from "@/components";
+import {Icon} from "@/components";
 
 export type FoldOption = {
 	title?: string;
+	children?: React.ReactNode;
 }
 
 type Props = {
 	className?: string;
+	foldList?: FoldOption[];
 };
 
 export const FoldingBox = ({
-	className
+	className,
+	foldList = [],
 }:Props) => {
+	const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+	const handleToggle = (idx: number) => {
+		setOpenIndex(openIndex === idx ? null : idx); // 저장된 값에서 시작
+	};
+
 	return (
 		<S.FoldingBox className={className}>
 			<ul className="fold-list">
-					<li className="fold-item">
-						<div className="fold-header">
-							<div className="fold-title">
-							</div>
-							<Button className={'btn-fold'} text={'버튼'} />
-						</div>
-						<div className="fold-content">
-							<div className="order-prod-box">
-								<div className="title-wrap">
-									<Typography variant={'subTitle'} weight={'bold'}>올리브영 배송 상품*</Typography>
-									<div className="right-area">
-										<Typography variant={'subTitle'} weight={'semiBold'} color={'green600'}>20000원 이상 무료배송</Typography>
-									</div>
+				{foldList.map((item,idx) => {
+					const isOpen = openIndex === idx;
+
+					return (
+						<li className="fold-item" key={idx}>
+							{/* 폴딩 헤더 */}
+							<div className="fold-header">
+								<div className="fold-title">
+									{item.title}
 								</div>
-								<div className="prod-item">
-									{/*<ProdUnit >> 새로 order용 만들기!!! 같이 사용하기 어려울것같음 */}
-									{/*	size={'xxs'}*/}
-									{/*	prodTitle={'[15년 연속 1위] 메디힐 에센셜 마스크팩10/10 +1매 기획 7종 골라담기'}*/}
-									{/*></ProdUnit>*/}
-									<ThumbBox size={'xxs'} thumbImg={'이미지'} thumbAlt={'이미지'} />
-								</div>
+								<Icon
+									name={isOpen? 'upArrow': 'downArrow'}
+									isButton size={'md'}
+									onClick={() => handleToggle(idx)}
+								/>
 							</div>
-						</div>
-					</li>
+							{/* 폴딩 컨텐츠 */}
+							{isOpen && (
+								<div className="fold-content">
+									{item.children}
+								</div>
+							)}
+						</li>
+					)
+				})}
 			</ul>
 		</S.FoldingBox>
 	)
