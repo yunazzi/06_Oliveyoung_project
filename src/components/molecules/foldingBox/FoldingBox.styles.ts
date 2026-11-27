@@ -9,10 +9,10 @@ export const FoldingBox = styled.div`
                 justify-content: space-between;
                 align-items: center;
 				
-				.btn-fold {
-					position: absolute;
-					inset: 0;
-					background: #000;
+				.btn-fold { // 폴딩누르면 전체 닫히는 방법 시도하기
+					//position: absolute;
+					//inset: 0;
+					//background: #000;
 				}
 			}
 			.fold-content {
