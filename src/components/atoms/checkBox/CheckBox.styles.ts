@@ -5,9 +5,9 @@ const checkedIcon = `${import.meta.env.BASE_URL}assets/icons/ic-checked.svg`;
 export const CheckBox = styled.span`
 	position: relative;
 	display: inline-block;
-	//font-size: 0;
 	vertical-align: top;
 	min-height: 24px;
+	z-index: 99;
 	
 	.ui-input {
 		position: absolute;

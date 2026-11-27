@@ -39,6 +39,7 @@ export const FoldingBox = ({
 									name={isOpen? 'upArrow': 'downArrow'}
 									isButton size={'md'}
 									onClick={() => handleToggle(idx)}
+									className={'btn-fold'}
 								/>
 							</div>
 							{/* 폴딩 컨텐츠 */}
