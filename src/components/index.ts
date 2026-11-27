@@ -9,6 +9,8 @@ export {Tag} from '@/components/atoms/tag/Tag.tsx';
 export {GoodsGroup} from "@/components/atoms/goodsGroup/GoodsGroup.tsx";
 export {Review} from "@/components/atoms/review/Review.tsx";
 export {BreadCrumbs} from "@/components/atoms/breadCrumbs/BreadCrumbs.tsx";
+export {Radio} from "@/components/atoms/radio/Radio.tsx";
+export {CheckBox} from "@/components/atoms/checkBox/CheckBox.tsx";
 
 // molecules
 export {SearchBox} from '@/components/molecules/searchBox/SearchBox.tsx';

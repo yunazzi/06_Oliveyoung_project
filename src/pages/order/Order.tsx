@@ -1,7 +1,7 @@
 import {
 	Layout, Typography, BreadCrumbs,
 	PageTitle, Table, InputBox, SelectBox,
-	Button, Tag, FoldingBox, FormList, Box
+	Button, Tag, FoldingBox, FormList, Box, CheckBox
 } from "@/components";
 
 import * as S from './Order.styles.ts';
@@ -157,7 +157,7 @@ const formList = [
 
 const foldList = [
 	{
-		title: "전체동의",
+		title: <CheckBox id={'chkList'} text={'전체 동의'} />,
 		children:
 			<>
 			</>

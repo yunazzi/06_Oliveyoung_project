@@ -3,20 +3,28 @@ import * as S from './Input.styles.ts'
 
 type Props = {
 	placeholder?: string;
-	type?: 'text' | 'search' | 'number';
+	type?: 'text' | 'search' | 'number' | 'radio' | 'checkbox';
 	title?: string;
 	value?: string;
 	maxLength?: number;
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	id?: string;
+	name?: string;
+	disabled?: boolean;
+	checked?: boolean;
 }
 
 export const Input = ({
 	type = 'text',
 	placeholder,
-	title = '',
+	title,
 	value,
 	onChange,
 	maxLength,
+	id,
+	name,
+	disabled,
+	checked
 }:Props) => {
 	const isNumber = type === 'number';
 	 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,6 +36,10 @@ export const Input = ({
 
 	return(
 		<S.Input
+			id={id}
+			name={name}
+			disabled={disabled}
+			checked={checked}
 			type={type}
 			inputMode={isNumber ? 'tel' : undefined}
 			placeholder={placeholder}

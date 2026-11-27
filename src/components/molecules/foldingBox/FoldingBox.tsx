@@ -3,7 +3,7 @@ import * as S from './FoldingBox.styles.ts';
 import {Icon} from "@/components";
 
 export type FoldOption = {
-	title?: string;
+	title?: React.ReactNode;
 	children?: React.ReactNode;
 }
 
